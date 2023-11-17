@@ -20,7 +20,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 // Route::get('/', function () {
 //     return view('home');

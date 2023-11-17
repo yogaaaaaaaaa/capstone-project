@@ -58,8 +58,13 @@ body {
 .hero-4 {
     background: linear-gradient(0deg, #212529, #EB1616);
 }
+
 .hero-5 {
     background-color: rgb(33, 37, 41);
+}
+
+.hero-6 {
+    background: linear-gradient(180deg, #212529, #EB1616);
 }
 
 .distance {
@@ -130,21 +135,170 @@ body {
 
 }
 
+.card-quality-center {
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+.circle-icon-center {
+    width: 70px;
+    height: 70px;
+    background-color: #EB1616;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card-title-center {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.card-subtitle-center {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.title-card-center {
+    color: #212529;
+}
+
+.card-quality-center:hover {
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: linear-gradient(160deg, #212529, #EB1616);
+    /* background-color: #EB1616; */
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    transform: scale(1.1);
+    cursor: pointer;
+    color: #fff;
+}
+
+.circle-icon-center:hover {
+    width: 70px;
+    height: 70px;
+    background-color: #ffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card-quality {
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: #EB1616;
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    transition: all 0.2s ease-in;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.circle-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.card-quality:hover {
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background: linear-gradient(160deg, #212529, #EB1616);
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.title-card {
+    color: #ffffff;
+}
+
+.card-quality:hover {
+    width: 100%;
+    height: 313px;
+    border-radius: 5px;
+    background-color: #EB1616;
+    padding: 40px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05)
+}
+
+.circle-icon:hover {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
 .img-branding {
     border-radius: 20px;
     width: auto;
     max-height: 400px;
 }
 
-/* .brand-local{
-    padding-left: 12rem;
-    padding-right: 12rem;
-} */
-/* 
-svg {
-    width: 40px;
-} */
+.title-branding {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 60px;
+}
 
+.subtitile-branding {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.container-sm {
+    width: 75% !important;
+}
+
+.card-testi {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05)
+}
+
+.testi-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.outer-box {
+    border: 1px solid #000000;
+    padding: 10px;
+}
+
+.testi-p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.comment-user {
+    font-size: 15px;
+    font-style: italic;
+}
 
 @media screen and (max-width: 768px) {
     .carousel {
@@ -161,8 +315,14 @@ svg {
     .card {
         width: 18rem !important;
     }
+    .container-sm {
+        width: 100% !important;
+    }
 }
 @media screen and (max-width: 576px) {
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
     .distance {
         padding-top: 25%;
         padding-bottom: 10%;
@@ -171,5 +331,7 @@ svg {
         font-size: 30px;
         line-height: 44px;
     }
-
+    .container-sm {
+        width: 100% !important;
+    }
 }
