@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function checkAuthentication() {
         if (Auth::check() && Auth::user()->usertype === 'admin') {
             // Tindakan jika pengguna adalah admin
-            return view('admin.dashboard-admin');
+            return view('admin.content.content-main-dashboard');
         } else {
             // Tindakan jika pengguna bukan admin
             return redirect()->route('home');

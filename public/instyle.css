@@ -8,6 +8,7 @@ body {
     padding-top: 5.5rem;
 }
 
+/* Navbar Start */
 .navbar {
     padding: 15px 18px !important;
 }
@@ -39,6 +40,104 @@ body {
     width: 100%;
 }
 
+.user-pic {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 70%;
+    right: 9%;
+    width: auto;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: #212529;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user-info img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-info hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;
+}
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 12px 0;
+}
+
+.content-left {
+    margin-right: 15px; /* Jarak antara gambar dan teks */
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.content-right {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-right p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.content-right span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.content-right:hover span {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.content-right:hover p {
+    margin: 0;
+    font-weight: 500;
+    color: #ffffff;
+}
+/* Navbar End */
+
+/* Hero Start*/
 .hero {
     background: linear-gradient(0deg, #212529, #EB1616);
     /* background: linear-gradient(160deg, #EB1616, #151515); */
@@ -65,13 +164,17 @@ body {
 
 .hero-6 {
     background: linear-gradient(180deg, #212529, #EB1616);
+    /* height: 500px; */
 }
+
+/* Hero End */
 
 .distance {
     padding-top: 15%;
     padding-bottom: 10%;
 }
 
+/* Section 1 */
 .home-heading {
     font-size: 50px;
     font-weight: 700;
@@ -107,6 +210,7 @@ body {
     gap: 10px;
 }
 
+/* Section Our CLient Slider Start */
 @keyframes scroll{
     0%{
         transform: translateX(0);
@@ -135,9 +239,12 @@ body {
 
 }
 
+/* Section Our CLient Slider End */
+
+/* Section 2 Start */
 .card-quality-center {
     width: 100%;
-    height: 313px;
+    height: 100%;
     border-radius: 5px;
     background: #fff;
     padding: 40px;
@@ -170,7 +277,7 @@ body {
 
 .card-quality-center:hover {
     width: 100%;
-    height: 313px;
+    height: 100%;
     border-radius: 5px;
     background: linear-gradient(160deg, #212529, #EB1616);
     /* background-color: #EB1616; */
@@ -191,7 +298,7 @@ body {
 
 .card-quality {
     width: 100%;
-    height: 313px;
+    height: 100%;
     border-radius: 5px;
     background: #EB1616;
     padding: 40px;
@@ -210,7 +317,7 @@ body {
 
 .card-quality:hover {
     width: 100%;
-    height: 313px;
+    height: 100%;
     border-radius: 5px;
     background: linear-gradient(160deg, #212529, #EB1616);
     padding: 40px;
@@ -233,15 +340,6 @@ body {
     color: #ffffff;
 }
 
-.card-quality:hover {
-    width: 100%;
-    height: 313px;
-    border-radius: 5px;
-    background-color: #EB1616;
-    padding: 40px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05)
-}
-
 .circle-icon:hover {
     width: 70px;
     height: 70px;
@@ -249,6 +347,9 @@ body {
     border-radius: 50%;
 }
 
+/* Section 2 End */
+
+/* Section 4 Start */
 .img-branding {
     border-radius: 20px;
     width: auto;
@@ -267,13 +368,16 @@ body {
     line-height: 30px;
 }
 
-.container-sm {
+.branding {
     width: 75% !important;
 }
 
+/* Section 4 End */
+
+/* Section 5 Start */
 .card-testi {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 5px;
     background-color: #ffffff;
     padding: 10px;
@@ -300,7 +404,72 @@ body {
     font-style: italic;
 }
 
+.text-testi-form {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.btn-feedback {
+    background-color: #eb1616 !important;
+    color:#ffffff !important;
+    transition: all 0.3s ease-in;
+}
+
+.btn-feedback:hover {
+    transform: scale(1.1);
+}
+/* Section 5 End */
+
+/* Section 6 Footer Start*/
+.footer-general {
+    padding-left: 8rem;
+}
+
+.footer-company {
+    padding-left: 8rem;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.icon-sosmed {
+    margin-right: 1rem;
+}
+
+.copy {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* .title-foot-p {
+    width: 60%;
+} */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999; /* Pastikan z-index cukup tinggi agar tombol tetap di atas konten lainnya */
+    display: none; /* Sembunyikan tombol secara default */
+    background-color: #EB1616 !important;
+    border: 1px solid #212529;
+    color: #ffffff;
+  }
+  
+  .back-to-top.show {
+    display: block; /* Tampilkan tombol saat diberikan kelas "show" */
+  }
+  
+/* Section 6 Footer End*/
+
+/* Responsive */
+
 @media screen and (max-width: 768px) {
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
+
     .carousel {
         display: none;
     }
@@ -318,6 +487,10 @@ body {
     .container-sm {
         width: 100% !important;
     }
+    .text-testi-form {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 }
 @media screen and (max-width: 576px) {
     .navbar {
@@ -333,5 +506,9 @@ body {
     }
     .container-sm {
         width: 100% !important;
+    }
+    .text-testi-form {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
