@@ -7,6 +7,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SablonController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -57,5 +58,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('product', ProductController::class);
+
+Route::get('/orderSablon', [SablonController::class, 'OrderSablon']);
 
 require __DIR__.'/auth.php';
