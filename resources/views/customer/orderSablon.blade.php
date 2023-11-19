@@ -166,7 +166,7 @@
           <div class="row">
             <div class="col">
               <div class=" mb-2">
-               <label class="form-label text-white" for="upload">Upload Design</label>
+               <label class="form-label text-white upload" for="upload">Upload Design</label>
                <div class="drag-area">
                 <div class="icon"><i class="bi bi-cloud-arrow-up"></i></div>
                 <p>Click to upload or drag and drop <br> MAX. File Size: 30MB</p>

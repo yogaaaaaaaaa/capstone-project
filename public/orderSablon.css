@@ -148,7 +148,7 @@ body {
 }
 
 .drag-area {
-    width: 680px;
+    width: 100%;
     height: 100px;
     padding: 10px;
     background: #ffffff;
@@ -166,18 +166,16 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .drag-area {
+    /* .drag-area {
         width: 300px;
-    }
+    } */
     .form-label {
         font-size: 15px;
     }
-
     .navbar {
         background-color: rgb(33, 37, 41);
     }
-
-    .carousel {
+    /* .carousel {
         display: none;
     }
     .home-heading {
@@ -197,18 +195,25 @@ body {
     .text-testi-form {
         padding-left: 50px;
         padding-right: 50px;
-    }
+    } */
 }
 
 @media screen and (max-width: 576px) {
     .drag-area {
-        width: 260px;
+        /* width: 260px; */
+        font-size: 6px;
     }
     .form-label {
-        font-size: 13px;
+        font-size: 10px;
     }
     .email {
-        margin-top: 15px;
+        margin-top: 8px;
+    }
+    .upload {
+        margin-bottom: 15px;
+    }
+    .form-control {
+        font-size: 10px;
     }
     .section {
         margin-top: -28px;
@@ -218,16 +223,15 @@ body {
         margin-bottom: -5px;
     }
     .button {
-        margin-top: -40px;
+        margin-top: -20px;
     }
-    .btn {
-        margin-top: -10px;
+    .icon {
+        font-size: 20px;
     }
-
     .navbar {
         background-color: rgb(33, 37, 41);
     }
-    .distance {
+    /* .distance {
         padding-top: 25%;
         padding-bottom: 10%;
     }
@@ -241,5 +245,5 @@ body {
     .text-testi-form {
         padding-left: 10px;
         padding-right: 10px;
-    }
+    } */
 }
