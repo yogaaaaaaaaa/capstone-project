@@ -19,6 +19,7 @@
 
     {{-- Style CSS --}}
     <link rel="stylesheet" href="{{asset('orderSablon.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('instyle.css')}}"> --}}
 
     {{-- Icon Bpptstrao --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -42,8 +43,14 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Profil</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Service</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Service
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{route('orderSablon')}}">Order Sablon</a></li>
+                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Tracking</a>
@@ -54,17 +61,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li> --}}
               </ul>
               <img src="{{asset('assets/img/user.jpg')}}" alt="" class="user-pic" onclick="toggleMenu()">
               <div class="sub-menu-wrap" id="subMenu">
@@ -115,7 +111,6 @@
   
      
       {{-- Start Content --}}
-      
       <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
         <div class="row h-100">
           <div class=" d-flex text-white text-center align-items-center">

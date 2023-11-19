@@ -38,8 +38,14 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Profil</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Service</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Service
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Order Sablon</a></li>
+                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Tracking</a>
@@ -50,17 +56,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li> --}}
               </ul>
               <a href="{{route('login')}}" class="me-3" style="text-decoration: none; color: rgb(255, 255, 255);">Log In</a>
               <button class="btn get-started text-white" style="background-color: #EB1616;">Get Started</button>
