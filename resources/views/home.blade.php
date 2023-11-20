@@ -87,15 +87,15 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
               </div>
-              <div class="carousel-inner" style="border-radius: 15px;">
+              <div class="carousel-inner" style="border-radius: 20px;">
                 <div class="carousel-item active">
-                  <img src="{{asset('assets/img/kaos1.jpg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/monsattan-distro.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img src="{{asset('assets/img/kaos3.jpeg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/takdeotak.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img src="{{asset('assets/img/kaos1.jpg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/monsattan-distro.png')}}" class="d-block w-100" alt="...">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

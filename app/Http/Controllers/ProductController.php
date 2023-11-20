@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,8 +12,9 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.content.content-main-product');
+    {   
+        $product = Product::with('category')->simplePaginate(5);
+        return view('admin.content.content-main-product', compact('product'));
     }
 
     /**
@@ -19,7 +22,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.layouts.add-product');
+        $categories = Category::all();
+        return view('admin.layouts.add-product', compact('categories'));
     }
 
     /**
@@ -27,7 +31,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name_product' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
+            'stock' => 'required|integer',
+            'price' => 'required|integer',
+            'category_id' => 'required|exists:categories,id'
+        ]);
+        
+        $product = new Product();
+        $product->name_product = $request->input('name_product');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/content'), $imageName);
+            $product->image = $imageName;
+        }
+        $product->stock = $request->input('stock');
+        $product->price = $request->input('price');
+        $product->category_id = $request->input('category_id');
+        $product->save();
+
+        return redirect('/product');
     }
 
     /**
@@ -43,7 +69,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $product = Product::with('category')->find($id);
+        $product = Product::find($id);
+        $categories = Category::all();
+        return view('admin.layouts.edit-product', compact('product', 'categories'));
     }
 
     /**
@@ -51,7 +80,28 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name_product' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg',
+            'stock' => 'required|integer',
+            'price' => 'required|integer',
+            'category_id' => 'required|exists:categories,id'
+        ]);
+        
+        $product = Product::find($id);
+        $product->name_product = $request->input('name_product');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/content'), $imageName);
+            $product->image = $imageName;
+        }
+        $product->stock = $request->input('stock');
+        $product->price = $request->input('price');
+        $product->category_id = $request->input('category_id');
+        $product->save();
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -59,6 +109,9 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect()->route('product.index');
     }
 }

@@ -10,18 +10,39 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Image Product</th>
                         <th scope="col">Name Product</th>
                         <th scope="col">Category</th>
+                        <th scope="col">Stock</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Information</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach ($product as $key => $item)
+                        <tr>
+                            <td>{{$product->firstItem() + $key}}</td>
+                            <td><img src="{{ asset('images/content/' . $item->image) }}" alt="Image" class="img-fluid" width="70"></td>
+                            <td>{{$item->name_product}}</td>
+                            <td>{{$item->category->name_category}}</td>
+                            <td>{{$item->stock}}</td>
+                            <td>{{$item->price}}</td>
+                            <td class="d-flex">
+                                <a href="{{route('product.edit', $item->id)}}" class="btn btn-warning mx-2"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
+                                <form action="{{route('product.destroy', $item->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" style="background-color: #eb1616 !important;"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center" style="overflow: hidden;">
+                {{ $product->links() }}
+            </div>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
         <h6 class="mb-4">List Data Category</h6>
         <a href="{{route('category.create')}}" class="btn mb-3" style="background-color: #eb1616; color:#ffffff;"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a>
         <div class="table-responsive">
-            <table class="table text-white">
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
