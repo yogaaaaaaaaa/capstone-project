@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SablonController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -48,6 +50,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', [DashboardController::class, 'checkAuthentication'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/service/orderSablon', [HomeController::class, 'orderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
 Route::get('/home', [HomeController::class, 'HomeUser'])->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
@@ -60,5 +63,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
+
+Route::get('/orderSablon', [SablonController::class, 'OrderSablon']);
 
 require __DIR__.'/auth.php';
