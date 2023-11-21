@@ -21,15 +21,11 @@
     <link rel="stylesheet" href="{{asset('orderSablon.css')}}">
     {{-- <link rel="stylesheet" href="{{asset('instyle.css')}}"> --}}
 
-    {{-- Icon Bpptstrao --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
     {{-- Animation Website --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    
 </head>
 <body>
-  <section class="hero">
     {{-- Navbar Start --}}
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -107,10 +103,11 @@
           </div>
       </nav>
     </div>
-      {{-- Navbar End --}}
-  
-     
-      {{-- Start Content --}}
+    {{-- Navbar End --}}
+
+    {{-- Start Content --}}
+    {{-- <section class="hero"> --}}
+      <div class="head">
       <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
         <div class="row h-100">
           <div class=" d-flex text-white text-center align-items-center">
@@ -119,49 +116,75 @@
           </div>
         </div>
       </div>
+    </div>
       {{-- End Content --}}
 
       {{-- Start Section --}}
+      
+    <section class="hero">
       <form method="POST">
         @csrf
-        <div class="section p-5">
+        <div class="container mt-3">
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="order">Order Name</label>
-               <input type="text" class="form-control" id="order" placeholder="Input Name">
+               <input type="text" class="form-control" id="order" placeholder="Input Name" required>
               </div>
             </div>
 
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="addres">Address</label>
-                <input type="text" class="form-control" id="addres" placeholder="Input Address">
+                <input type="text" class="form-control" id="addres" placeholder="Input Address" required>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="number">Telphone Number / Whatsapp</label>
-               <input type="number" class="form-control" id="number" placeholder="Input Number">
+               <input type="number" class="form-control" id="number" placeholder="Input Number" required>
               </div>
             </div>
 
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="email">Email</label>
-                <input type="email" class="form-control email" id="email" placeholder="Input Email">
+                <input type="email" class="form-control email" id="email" placeholder="Input Email" required>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="upload">Upload Design</label>
+               <input type="url" class="form-control" id="upload" placeholder="Input your url" required>
+              </div>
+            </div>
+
+            <div class=" col-sm-12 col-md-6">
+              <div class=" mb-2">
+                <label class="form-label text-white" for="quantity">Quantity</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Input quantity" required>
+              </div>
+            </div>
+          </div>
+
+          <div class=" col-sm-12 col-md-12">
+            <div class=" mb-2">
+              <label class="form-label text-white" for="design">Design and screen printing information</label>
+              <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
+            </div>
+          </div>
+
+          {{-- <div class="row">
+            <div class="col">
+              <div class=" mb-2">
+               <label class="form-label text-white upload" for="upload">Upload Design</label>
                <div class="drag-area">
                 <div class="icon"><i class="bi bi-cloud-arrow-up"></i></div>
                 <p>Click to upload or drag and drop <br> MAX. File Size: 30MB</p>
@@ -178,7 +201,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       {{-- End Section --}}
 
       {{-- Start Button --}}
@@ -187,39 +210,47 @@
       <button class="btn get-started text-white form-control" style="background-color: #EB1616;">Submit Order</button><br>
       </div>
 
-      <div class="btn d-flex justify-content-center p-3">
+      {{-- <div class="btn d-flex justify-content-center p-3">
       <button class="btn get-started text-white" style="background-color: #EB1616;"><i class="bi bi-cart2"> Add To Cart</i></button>
       </div>
-      </div>
+      </div> --}}
       {{-- End Button --}}
     </form>
     </section>
 </body>
 
-<script>
-  var nav = document.querySelector('nav');
+    {{-- Script --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    {{-- Animation Website --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var nav = document.querySelector('nav');
 
-  window.addEventListener('scroll', function(){
-      if(window.pageYOffset > 60){
-          nav.classList.add('bg-dark', 'shadow')
-      } else {
-          nav.classList.remove('bg-dark', 'shadow')
+      window.addEventListener('scroll', function(){
+          if(window.pageYOffset > 60){
+              nav.classList.add('bg-dark', 'shadow')
+          } else {
+              nav.classList.remove('bg-dark', 'shadow')
+          }
+      })
+
+      window.addEventListener('scroll', function() {
+        var backToTopButton = document.querySelector('.back-to-top');
+        if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      })
+
+      let subMenu = document.getElementById("subMenu");
+      function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
       }
-  })
 
-  window.addEventListener('scroll', function() {
-    var backToTopButton = document.querySelector('.back-to-top');
-    if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
-      backToTopButton.classList.add('show');
-    } else {
-      backToTopButton.classList.remove('show');
-    }
-  })
-
-  let subMenu = document.getElementById("subMenu");
-  function toggleMenu(){
-    subMenu.classList.toggle("open-menu");
-  }
-
-</script>
+    </script>
+</body>
 </html>
