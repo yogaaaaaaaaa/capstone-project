@@ -108,10 +108,10 @@
       </nav>
     </div>
     {{-- Navbar End --}}
-  
-     
-      {{-- Start Content --}}
-      <section class="hero">
+
+    {{-- Start Content --}}
+    {{-- <section class="hero"> --}}
+      <div class="head">
       <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
         <div class="row h-100">
           <div class=" d-flex text-white text-center align-items-center">
@@ -120,22 +120,25 @@
           </div>
         </div>
       </div>
+    </div>
       {{-- End Content --}}
 
       {{-- Start Section --}}
+      
+    <section class="hero">
       <form method="POST">
         @csrf
-        <div class="section p-5">
+        <div class="container mt-3">
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="order">Order Name</label>
                <input type="text" class="form-control" id="order" placeholder="Input Name" required>
               </div>
             </div>
 
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="addres">Address</label>
                 <input type="text" class="form-control" id="addres" placeholder="Input Address" required>
@@ -144,14 +147,14 @@
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="number">Telphone Number / Whatsapp</label>
                <input type="number" class="form-control" id="number" placeholder="Input Number" required>
               </div>
             </div>
 
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="email">Email</label>
                 <input type="email" class="form-control email" id="email" placeholder="Input Email" required>
@@ -160,14 +163,14 @@
           </div>
 
           <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                <label class="form-label text-white" for="upload">Upload Design</label>
                <input type="url" class="form-control" id="upload" placeholder="Input your url" required>
               </div>
             </div>
 
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="quantity">Quantity</label>
                 <input type="number" class="form-control" id="quantity" placeholder="Input quantity" required>
@@ -175,7 +178,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class=" col-sm-12 col-md-12">
             <div class=" mb-2">
               <label class="form-label text-white" for="design">Design and screen printing information</label>
               <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
@@ -220,32 +223,38 @@
     </section>
 </body>
 
-{{-- Script --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script>
-  var nav = document.querySelector('nav');
+    {{-- Script --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    {{-- Animation Website --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var nav = document.querySelector('nav');
 
-  window.addEventListener('scroll', function(){
-      if(window.pageYOffset > 60){
-          nav.classList.add('bg-dark', 'shadow')
-      } else {
-          nav.classList.remove('bg-dark', 'shadow')
+      window.addEventListener('scroll', function(){
+          if(window.pageYOffset > 60){
+              nav.classList.add('bg-dark', 'shadow')
+          } else {
+              nav.classList.remove('bg-dark', 'shadow')
+          }
+      })
+
+      window.addEventListener('scroll', function() {
+        var backToTopButton = document.querySelector('.back-to-top');
+        if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      })
+
+      let subMenu = document.getElementById("subMenu");
+      function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
       }
-  })
 
-  window.addEventListener('scroll', function() {
-    var backToTopButton = document.querySelector('.back-to-top');
-    if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
-      backToTopButton.classList.add('show');
-    } else {
-      backToTopButton.classList.remove('show');
-    }
-  })
-
-  let subMenu = document.getElementById("subMenu");
-  function toggleMenu(){
-    subMenu.classList.toggle("open-menu");
-  }
-
-</script>
+    </script>
+</body>
 </html>

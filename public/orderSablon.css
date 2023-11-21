@@ -1,7 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
-    /* background-color: rgb(23, 23, 23); */
-    overflow: hidden;
+  /* background-color: rgb(23, 23, 23);
+    overflow: hidden; */ 
 }
 
 .padd-t {
@@ -136,18 +136,36 @@ body {
     color: #ffffff;
 }
 /* Navbar End */
-
-.hero {
-    background: linear-gradient(0deg, #212529, #EB1616);
+.head {
+    background: #EB1616;
+    /* background: linear-gradient(0deg, #212529, #EB1616);
     background: linear-gradient(160deg, #EB1616, #151515);
     height: 100vh;
+    width: 100%; */ 
+    padding: 3% 0%; 
+    margin-bottom: -20px;
+}
+.hero {
+    background: linear-gradient(0deg, #212529, #EB1616);
+    /* background: linear-gradient(160deg, #EB1616, #151515); */
+    height: 100vh;
     width: 100%; 
-    padding: 3% 0%;
+    margin-top: -10px;
+    /* padding: 2% 0%; */
 }
 
-.icon {
-    font-size: 20px;
+/* Section Our CLient Slider Start */
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 5));
+    }
 }
+/* .icon {
+    font-size: 20px;
+} */
 
 /* .drag-area {
     width: 100%;
@@ -167,6 +185,7 @@ body {
     background: #EB1616;
 } */
 
+/* Screen Tablet */
 @media screen and (max-width: 768px) {
     /* .drag-area {
         width: 300px;
@@ -200,26 +219,23 @@ body {
     } */
 }
 
+/* Screen Handphone */
 @media screen and (max-width: 576px) {
     /* .drag-area {
-        width: 260px;
+        width: 100%;
         font-size: 6px;
     } */
     .form-label {
-        font-size: 10px;
+        font-size: 13px;
     }
-    .email {
-        margin-top: 8px;
-    }
-    .upload {
-        margin-bottom: 15px;
+/*     .email {
+        margin-top: 15px;
+    } */
+    .hero {
+        height: 110vh;
     }
     .form-control {
         font-size: 10px;
-    }
-    .section {
-        margin-top: -28px;
-        margin-bottom: -15px;
     }
     .row {
         margin-bottom: -5px;
@@ -227,13 +243,13 @@ body {
     /* .button {
         margin-top: -20px;
     } */
-    .icon {
+    /* .icon {
         font-size: 20px;
-    }
+    } */
     .navbar {
         background-color: rgb(33, 37, 41);
     }
-    /* .distance {
+/*     .distance {
         padding-top: 25%;
         padding-bottom: 10%;
     }
