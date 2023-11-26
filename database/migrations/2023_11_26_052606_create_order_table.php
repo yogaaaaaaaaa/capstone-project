@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable;
             $table->string('order_type');
             $table->string('payment_status');
-            $table->string('order_status');
+            $table->text('order_status');
             $table->integer('user_id');
             $table->timestamps();
         });
