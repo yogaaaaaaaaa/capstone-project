@@ -1,13 +1,14 @@
 body {
     font-family: 'Poppins', sans-serif;
-    /* background-color: rgb(23, 23, 23); */
-    overflow: hidden;
+  /* background-color: rgb(23, 23, 23);
+    overflow: hidden; */ 
 }
 
 .padd-t {
     padding-top: 5.5rem;
 }
 
+/* Navbar Start */
 .navbar {
     padding: 15px 18px !important;
 }
@@ -29,14 +30,23 @@ body {
     position: absolute;
     bottom: -1px;
     left: 0px;
-    background-color: #ffffff;
+    background-color: transparent;
     width: 0px;
     height: 3px;
+    transform: scaleX(0);
     transition: 0.4s ease-in-out;
+    transform-origin: left;
 }
 
 .nav-item:hover .nav-link::after{
+    transform: scaleX(1);
     width: 100%;
+    background-color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
 }
 
 .user-pic {
@@ -134,20 +144,39 @@ body {
     font-weight: 500;
     color: #ffffff;
 }
-
-.hero {
-    background: linear-gradient(0deg, #212529, #EB1616);
+/* Navbar End */
+.head {
+    background: #EB1616;
+    /* background: linear-gradient(0deg, #212529, #EB1616);
     background: linear-gradient(160deg, #EB1616, #151515);
     height: 100vh;
+    width: 100%; */ 
+    padding: 3% 0%; 
+    margin-bottom: -20px;
+}
+.hero {
+    background: linear-gradient(0deg, #212529, #EB1616);
+    /* background: linear-gradient(160deg, #EB1616, #151515); */
+    height: 100vh;
     width: 100%; 
-    padding: 3% 0%;
+    margin-top: -10px;
+    /* padding: 2% 0%; */
 }
 
-.icon {
+/* Section Our CLient Slider Start */
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 5));
+    }
+}
+/* .icon {
     font-size: 20px;
-}
+} */
 
-.drag-area {
+/* .drag-area {
     width: 100%;
     height: 100px;
     padding: 10px;
@@ -163,21 +192,20 @@ body {
     color: #ffffff;
     border-radius: 3px;
     background: #EB1616;
-}
+} */
 
+/* Screen Tablet */
 @media screen and (max-width: 768px) {
-    .drag-area {
+    /* .drag-area {
         width: 300px;
-    }
+    } */
     .form-label {
         font-size: 15px;
     }
-
     .navbar {
         background-color: rgb(33, 37, 41);
     }
-
-    .carousel {
+    /* .carousel {
         display: none;
     }
     .home-heading {
@@ -197,37 +225,40 @@ body {
     .text-testi-form {
         padding-left: 50px;
         padding-right: 50px;
-    }
+    } */
 }
 
+/* Screen Handphone */
 @media screen and (max-width: 576px) {
-    .drag-area {
-        width: 260px;
-    }
+    /* .drag-area {
+        width: 100%;
+        font-size: 6px;
+    } */
     .form-label {
         font-size: 13px;
     }
-    .email {
+/*     .email {
         margin-top: 15px;
+    } */
+    .hero {
+        height: 110vh;
     }
-    .section {
-        margin-top: -28px;
-        margin-bottom: -15px;
+    .form-control {
+        font-size: 10px;
     }
     .row {
         margin-bottom: -5px;
     }
-    .button {
-        margin-top: -40px;
-    }
-    .btn {
-        margin-top: -10px;
-    }
-
+    /* .button {
+        margin-top: -20px;
+    } */
+    /* .icon {
+        font-size: 20px;
+    } */
     .navbar {
         background-color: rgb(33, 37, 41);
     }
-    .distance {
+/*     .distance {
         padding-top: 25%;
         padding-bottom: 10%;
     }
@@ -241,5 +272,5 @@ body {
     .text-testi-form {
         padding-left: 10px;
         padding-right: 10px;
-    }
+    } */
 }

@@ -472,6 +472,31 @@ body {
   
 /* Section 6 Footer End*/
 
+/* Tracking Page */
+.tracking-header {
+    padding-top: 4rem;
+}
+
+.form-control {
+    height: 80px;
+}
+
+.sub-track-title {
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.sub-track-title-p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.input-group-text {
+    background-color: #EB1616;
+    color: #ffffff;
+}
+
+
 /* Responsive */
 
 @media screen and (max-width: 768px) {

@@ -26,82 +26,7 @@
 </head>
 <body>
     {{-- Navbar Start --}}
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-          <div class="container p-lg-3">
-            <a class="navbar-brand text-white" href="#" style="font-weight: 700; font-family:'Poppins'; font-size:1.5rem;">Hang Siji</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Profil</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Service
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{route('orderSablon')}}">Order Sablon</a></li>
-                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Tracking</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Team</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
-              </ul>
-              <img src="{{asset('assets/img/user.jpg')}}" alt="" class="user-pic" onclick="toggleMenu()">
-              <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu shadow">
-                  <div class="user-info">
-                    <img src="{{asset('assets/img/user.jpg')}}" alt="">
-                    <h4 class="text-white">{{ Auth::user()->name }}</h2>
-                  </div>
-                  <hr>
-
-                  <a href="#" class="sub-menu-link">
-                    <div class="content-left">
-                      <img src="{{asset('assets/img/profile.png')}}" alt="">
-                    </div>
-                    <div class="content-right">
-                      <p>Edit Profile</p>
-                      <span>&gt;</span>
-                    </div>
-                  </a>
-                  <a href="#" class="sub-menu-link">
-                    <div class="content-left">
-                      <img src="{{asset('assets/img/setting.png')}}" alt="">
-                    </div>
-                    <div class="content-right">
-                      <p>Setting</p>
-                      <span>&gt;</span>
-                    </div>
-                  </a>
-                  <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <a href="route('logout')" class="sub-menu-link" onclick="event.preventDefault(); this.closest('form').submit();">
-                      <div class="content-left">
-                        <img src="{{asset('assets/img/logout.png')}}" alt="">
-                      </div>
-                      <div class="content-right">
-                        <p>Logout</p>
-                        <span>&gt;</span>
-                      </div>
-                    </a>      
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      </nav>
-    </div>
+    @include('customer.partials.navbar')
     {{-- Navbar End --}}
 
     {{-- Section 1 Start --}}
@@ -306,72 +231,24 @@
         </div>
         <h4 class="text-white text-center mt-5 text-testi-form" data-aos="zoom-in" data-aos-duration="1000">Hello friends, come on and give your feedback on the quality of products and services from Hang Siji Distro & Screen Printing</h4>
         <div class="mt-5">
-          <form action="">
+          <form action="{{route('testimoni.store')}}" method="POST">
+            @csrf
             <div class="mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <label for="critic" class="form-label text-white">Criticism and Suggestions About Services</label>
-                <textarea class="form-control" name="critic" id="critic" cols="10" rows="3"></textarea>
+                <textarea class="form-control" name="critique_suggestions" id="critic" cols="10" rows="3"></textarea>
             </div>
             <div class="mb-4" data-aos="fade-up" data-aos-duration="1000">
                 <label for="quality-product" class="form-label text-white">Assess Product Quality</label>
-                <textarea class="form-control" name="quality-product" id="quality-product" cols="10" rows="3" ></textarea>
+                <textarea class="form-control" name="product_value" id="quality-product" cols="10" rows="3" ></textarea>
             </div>
 
-            <button class="btn btn-feedback" data-aos="fade-right" data-aos-duration="1000">Submit Feedback</button>
+            <button type="submit" class="btn btn-feedback" data-aos="fade-right" data-aos-duration="1000">Submit Feedback</button>
           </form>
         </div>
       </div>
     </div>
     {{-- Section 6 Start (Footer)--}}
-    <div class="container-fluid hero-6 padd-t">
-      <div class="container">
-        <div class="container-sm d-lg-flex justify-content-lg-between d-md-flex justify-content-md-between">
-          <div class="foot-hang-siji mt-4 text-white">
-            <h2 class="">Hang Siji</h2>
-            <p class="mt-5 title-foot-p">Jl. Umbul - Gunungsari, Sumbergondo<br> RT.1/RW.3, Salamrejo, Sumbergondo,Kec.<br> Glenmore, Kabupaten Banyuwangi, Jawa<br> Timur 68466</p>
-            <h2 class="">Our Contact (CS)</h2>
-            <div class="icon-email d-flex mt-4">
-              <i class="fa-solid fa-envelopes-bulk" style="color: #ffffff;"></i>
-              <p class="ms-3">example@gmail.com</p>
-            </div>
-            <div class="icon-contact d-flex">
-              <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-              <p class="ms-3">082357082325</p>
-            </div>
-            <div class="icon-medsos d-flex mt-3 pb-3">
-              <i class="fa-brands fa-tiktok fa-2xl icon-sosmed" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-square-facebook fa-2xl icon-sosmed" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-square-instagram fa-2xl icon-sosmed" style="color: #ffffff;"></i>
-              <i class="fa-brands fa-square-youtube fa-2xl icon-sosmed" style="color: #ffffff;"></i>
-            </div>
-          </div>
-          <div class="foot-general mt-4 text-white">
-            <h2>General</h2>
-            <div class="menu mt-5">
-              <a href="" class="d-block">Home</a>
-              <a href="" class="d-block mt-3">Profil</a>
-              <a href="" class="d-block mt-3">Service</a>
-              <a href="" class="d-block mt-3">Tracking</a>
-              <a href="" class="d-block mt-3">Team</a>
-              <a href="" class="d-block mt-3">Contact</a>
-            </div>
-          </div>
-          <div class="foot-company mt-4 text-white">
-            <h2>Company</h2>
-            <div class="menu mt-5">
-              <a href="" class="d-block">Website Terms</a>
-              <a href="" class="d-block mt-3">Privacy Police</a>
-              <div class="logo">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center pb-4 mt-3">
-          <a href="#" class="copy">&copy; Hang Siji Distro & Sablon, All Right Reserved.</a>
-        </div>
-        <a href="#" class="btn btn-lg rounded-circle back-to-top"><i class="fa-solid fa-arrow-up"></i></a>
-      </div>
-    </div>
+    @include('customer.partials.footer')
     {{-- Section 6 End --}}
 
     {{-- Script --}}
