@@ -60,5 +60,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('product', ProductController::class);
 
 Route::get('/orderSablon', [SablonController::class, 'OrderSablon']);
+Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->middleware(['auth', 'verified'])->name('keranjang');
 
 require __DIR__.'/auth.php';
