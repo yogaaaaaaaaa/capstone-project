@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     /* background-color: rgb(23, 23, 23);
     overflow: hidden; */
 }
@@ -21,12 +21,12 @@ body {
     position: relative;
 }
 
-.nav-item{
+.nav-item {
     margin: 0px 15px;
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -1px;
     left: 0px;
@@ -148,7 +148,7 @@ body {
 
 /* Hero Start*/
 .hero {
-    background: linear-gradient(0deg, #212529, #EB1616);
+    background: linear-gradient(0deg, #212529, #eb1616);
     /* background: linear-gradient(160deg, #EB1616, #151515); */
     /* padding: 10% 0%; */
     /* height: 100vh; */
@@ -160,11 +160,11 @@ body {
 }
 
 .hero-3 {
-    background: linear-gradient(180deg, #212529, #EB1616);
+    background: linear-gradient(180deg, #212529, #eb1616);
 }
 
 .hero-4 {
-    background: linear-gradient(0deg, #212529, #EB1616);
+    background: linear-gradient(0deg, #212529, #eb1616);
 }
 
 .hero-5 {
@@ -172,7 +172,7 @@ body {
 }
 
 .hero-6 {
-    background: linear-gradient(180deg, #212529, #EB1616);
+    background: linear-gradient(180deg, #212529, #eb1616);
     /* height: 500px; */
 }
 
@@ -192,7 +192,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.paragraf-home{
+.paragraf-home {
     font-size: 15px;
     font-weight: 500;
     max-width: 400;
@@ -204,8 +204,8 @@ body {
 }
 
 .btn-contact {
-    width: 170px; 
-    background-color: #EB1616 !important;
+    width: 170px;
+    background-color: #eb1616 !important;
 }
 
 .btn-contact:hover {
@@ -214,22 +214,22 @@ body {
 }
 
 .btn-home {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 /* Section Our CLient Slider Start */
-@keyframes scroll{
-    0%{
+@keyframes scroll {
+    0% {
         transform: translateX(0);
     }
-    100%{
+    100% {
         transform: translateX(calc(-250px * 5));
     }
 }
 
-.slider{
+.slider {
     height: 100px;
     margin: auto;
     overflow: hidden;
@@ -239,13 +239,12 @@ body {
 .slider-track {
     animation: scroll 40s linear infinite;
     display: flex;
-    width: calc(250px * 10);    
+    width: calc(250px * 10);
 }
 
 .slider .slide {
     height: 100px;
     width: 250px;
-
 }
 
 /* Section Our CLient Slider End */
@@ -257,7 +256,7 @@ body {
     border-radius: 5px;
     background: #fff;
     padding: 40px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in;
     cursor: pointer;
 }
@@ -265,7 +264,7 @@ body {
 .circle-icon-center {
     width: 70px;
     height: 70px;
-    background-color: #EB1616;
+    background-color: #eb1616;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -288,10 +287,10 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    background: linear-gradient(160deg, #212529, #EB1616);
+    background: linear-gradient(160deg, #212529, #eb1616);
     /* background-color: #EB1616; */
     padding: 40px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
     transform: scale(1.1);
     cursor: pointer;
     color: #fff;
@@ -309,9 +308,9 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    background: #EB1616;
+    background: #eb1616;
     padding: 40px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in;
     color: #ffffff;
     cursor: pointer;
@@ -328,9 +327,9 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    background: linear-gradient(160deg, #212529, #EB1616);
+    background: linear-gradient(160deg, #212529, #eb1616);
     padding: 40px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05);
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -390,7 +389,7 @@ body {
     border-radius: 5px;
     background-color: #ffffff;
     padding: 10px;
-    box-shadow: 0 0 7px 3px rgba(0,0,0, 0.05)
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
 }
 
 .testi-title {
@@ -420,7 +419,7 @@ body {
 
 .btn-feedback {
     background-color: #eb1616 !important;
-    color:#ffffff !important;
+    color: #ffffff !important;
     transition: all 0.3s ease-in;
 }
 
@@ -438,7 +437,7 @@ body {
     padding-left: 8rem;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
     color: #ffffff;
 }
@@ -461,16 +460,112 @@ body {
     right: 20px;
     z-index: 999; /* Pastikan z-index cukup tinggi agar tombol tetap di atas konten lainnya */
     display: none; /* Sembunyikan tombol secara default */
-    background-color: #EB1616 !important;
+    background-color: #eb1616 !important;
     border: 1px solid #212529;
     color: #ffffff;
-  }
-  
-  .back-to-top.show {
+}
+
+.back-to-top.show {
     display: block; /* Tampilkan tombol saat diberikan kelas "show" */
-  }
-  
+}
+
 /* Section 6 Footer End*/
+
+/* Keranjang Page start */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(190deg, #212529, #eb1616);
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.items {
+    display: block;
+}
+
+.item {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.checkbox-group {
+    order: 1;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.image-container {
+    order: 2;
+    flex: 0 0 150px;
+    margin-right: 20px;
+}
+
+.item img {
+    width: 250px;
+    height: 150px;
+}
+
+.details {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.quantity {
+    order: 4;
+    display: flex;
+    align-items: center;
+}
+
+.checkout-container {
+    order: 5;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.select-all-container {
+    margin-right: 20px;
+    color: white;
+}
+
+.checkout {
+    margin-left: auto;
+}
+
+button {
+    background-color: #eb1616;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #eb1616;
+}
+/* Keranjang Page END */
 
 /* Tracking Page */
 .tracking-header {

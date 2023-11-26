@@ -11,6 +11,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DetailsController;
+
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -29,16 +33,19 @@ Route::get('/', function () {
     return view('home');
 });
 
+//The Email Verification Notice
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
+//The Email Verification Handler
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
     
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
+//Resending The Verification Email
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     
@@ -66,8 +73,13 @@ Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
 
+
+Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->middleware(['auth', 'verified'])->name('keranjang');
+Route::get('/order', [OrderController::class, 'Order']);
+Route::get('/orderDetails', [DetailsController::class, 'Details']);
 Route::get('/orderSablon', [SablonController::class, 'OrderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
 Route::get('/tracking', [TrackingController::class, 'tracking'])->middleware(['auth', 'verified'])->name('tracking');
 Route::get('/testimoni', [TestimoniController::class, 'index'])->middleware(['auth', 'verified'])->name('testimoni.index');
+
 
 require __DIR__.'/auth.php';
