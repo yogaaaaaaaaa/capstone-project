@@ -252,7 +252,6 @@
         <!--End Product List-->
 
         <!--carousel controller start-->
-
         <!--carousel controller end-->
     </section>
 
