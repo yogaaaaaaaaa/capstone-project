@@ -8,6 +8,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SablonController;
+use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DetailsController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -61,5 +64,7 @@ Route::resource('product', ProductController::class);
 
 Route::get('/orderSablon', [SablonController::class, 'OrderSablon']);
 Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->middleware(['auth', 'verified'])->name('keranjang');
+Route::get('/order', [OrderController::class, 'Order']);
+Route::get('/orderDetails', [DetailsController::class, 'Details']);
 
 require __DIR__.'/auth.php';

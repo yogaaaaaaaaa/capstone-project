@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Style CSS --}}
-    <link rel="stylesheet" href="{{asset('orderSablon.css')}}">
+    <link rel="stylesheet" href="{{asset('order.css')}}">
 
     {{-- Animation Website --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -110,17 +110,15 @@
     {{-- Navbar End --}}
 
     {{-- Start Content --}}
-    {{-- <section class="hero"> --}}
-      <div class="head">
+    <section class="hero">
       <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
         <div class="row h-100">
           <div class=" d-flex text-white text-center align-items-center">
-                <p>Start screen printing your<br>
-                t-shirt according to your wishes</p>
+                <p>Let's order now the item of<br>
+                your choice</p>
           </div>
         </div>
       </div>
-    </div>
       {{-- End Content --}}
 
       {{-- Start Section --}}
@@ -128,20 +126,24 @@
     <section class="hero">
       <form method="POST">
         @csrf
-        <div class="container mt-3">
+        <div class="section p-5">
 
           <div class="row">
             <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
-               <label class="form-label text-white" for="order">Order Name</label>
-               <input type="text" class="form-control" id="order" placeholder="Input Name" required>
+                <label class="form-label text-white" for="name">Order Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name">
               </div>
             </div>
 
             <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
-                <label class="form-label text-white" for="addres">Address</label>
-                <input type="text" class="form-control" id="addres" placeholder="Input Address" required>
+                <label class="form-label text-white" for="description">Type Order</label>
+                <select class="form-control" aria-label=".form-select-sm example">
+                    <option selected>Type Order</option>
+                    <option value="product">Product</option>
+                    <option value="sablon">Sablon</option>
+                  </select>
               </div>
             </div>
           </div>
@@ -149,75 +151,42 @@
           <div class="row">
             <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
-               <label class="form-label text-white" for="number">Telphone Number / Whatsapp</label>
-               <input type="number" class="form-control" id="number" placeholder="Input Number" required>
+                <label for="address" class="form-label text-white">Address</label>
+                <textarea class="form-control" id="address" rows="3">Address</textarea>
               </div>
             </div>
 
             <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
-                <label class="form-label text-white" for="email">Email</label>
-                <input type="email" class="form-control email" id="email" placeholder="Input Email" required>
+                <label for="description" class="form-label text-white">Description</label>
+                <textarea class="form-control" id="description" rows="3">Description</textarea>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class=" col-sm-12 col-md-6">
-              <div class=" mb-2">
-               <label class="form-label text-white" for="upload">Upload Design</label>
-               <input type="url" class="form-control" id="upload" placeholder="Input your url" required>
-              </div>
-            </div>
-
             <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
                 <label class="form-label text-white" for="quantity">Quantity</label>
-                <input type="number" class="form-control" id="quantity" placeholder="Input quantity" required>
+                <input type="number" class="form-control" id="Quantity" placeholder="Select Quantity">
               </div>
             </div>
-          </div>
 
-          <div class=" col-sm-12 col-md-12">
-            <div class=" mb-2">
-              <label class="form-label text-white" for="design">Design and screen printing information</label>
-              <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
-            </div>
-          </div>
-
-          {{-- <div class="row">
-            <div class="col">
+            <div class=" col-sm-12 col-md-6">
               <div class=" mb-2">
-               <label class="form-label text-white upload" for="upload">Upload Design</label>
-               <div class="drag-area">
-                <div class="icon"><i class="bi bi-cloud-arrow-up"></i></div>
-                <p>Click to upload or drag and drop <br> MAX. File Size: 30MB</p>
-                <button>Upload</button>
-                <input type="file" id="upload" hidden>
-               </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class=" mb-2">
-                <label class="form-label text-white" for="design">Design and screen printing information</label>
-                <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
+                <label class="form-label text-white" for="design">Design</label>
+                <input type="url" class="form-control" id="design" placeholder="Input your url (for sablon)">
               </div>
             </div>
           </div>
-        </div> --}}
+            
       {{-- End Section --}}
 
       {{-- Start Button --}}
       <div class="button">
       <div class="btn d-flex justify-content-center mx-5">
-      <button class="btn get-started text-white form-control" style="background-color: #EB1616;">Submit Order</button><br>
+      <button class="btn get-started text-white form-control" style="background-color: #EB1616;">Go To Order</button><br>
       </div>
-
-      {{-- <div class="btn d-flex justify-content-center p-3">
-      <button class="btn get-started text-white" style="background-color: #EB1616;"><i class="bi bi-cart2"> Add To Cart</i></button>
-      </div>
-      </div> --}}
       {{-- End Button --}}
     </form>
     </section>
@@ -226,10 +195,10 @@
     {{-- Script --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     {{-- Animation Website --}}
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   {{--  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
-    </script>
+    </script> --}}
     <script>
       var nav = document.querySelector('nav');
 

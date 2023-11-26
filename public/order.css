@@ -1,0 +1,185 @@
+body {
+    font-family: 'Poppins', sans-serif;
+  /* background-color: rgb(23, 23, 23);
+    overflow: hidden; */ 
+}
+
+.padd-t {
+    padding-top: 5.5rem;
+}
+
+/* Navbar Start */
+.navbar {
+    padding: 15px 18px !important;
+}
+
+.nav-item .nav-link {
+    /* color: rgba(255,255,255, 0.92); */
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 500px;
+    position: relative;
+}
+
+.nav-item{
+    margin: 0px 15px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    background-color: #ffffff;
+    width: 0px;
+    height: 3px;
+    transition: 0.4s ease-in-out;
+}
+
+.nav-item:hover .nav-link::after{
+    width: 100%;
+}
+
+.user-pic {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 70%;
+    right: 9%;
+    width: auto;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: #212529;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user-info img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-info hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;
+}
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 12px 0;
+}
+
+.content-left {
+    margin-right: 15px; /* Jarak antara gambar dan teks */
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.content-right {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-right p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.content-right span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.content-right:hover span {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.content-right:hover p {
+    margin: 0;
+    font-weight: 500;
+    color: #ffffff;
+}
+/* Navbar End */
+
+.hero {
+    background: linear-gradient(0deg, #212529, #EB1616);
+    background: linear-gradient(160deg, #EB1616, #151515);
+    height: 100vh;
+    width: 100%; 
+    padding: 3% 0%;
+}
+
+/* Section Our CLient Slider Start */
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 5));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-label {
+        font-size: 15px;
+    }
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .form-label {
+        font-size: 10px;
+    }
+    .form-control {
+        font-size: 10px;
+    }
+    .section {
+        margin-top: -28px;
+        margin-bottom: -15px;
+    }
+    .row {
+        margin-bottom: -5px;
+    }
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
+}
