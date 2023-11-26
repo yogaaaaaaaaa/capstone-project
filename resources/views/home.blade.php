@@ -38,8 +38,14 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">Profil</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Service</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Service
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Order Sablon</a></li>
+                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Tracking</a>
@@ -50,17 +56,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li> --}}
               </ul>
               <a href="{{route('login')}}" class="me-3" style="text-decoration: none; color: rgb(255, 255, 255);">Log In</a>
               <button class="btn get-started text-white" style="background-color: #EB1616;">Get Started</button>
@@ -92,15 +87,15 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
               </div>
-              <div class="carousel-inner" style="border-radius: 15px;">
+              <div class="carousel-inner" style="border-radius: 20px;">
                 <div class="carousel-item active">
-                  <img src="{{asset('assets/img/kaos1.jpg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/monsattan-distro.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img src="{{asset('assets/img/kaos3.jpeg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/takdeotak.png')}}" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                  <img src="{{asset('assets/img/kaos1.jpg')}}" class="d-block w-100" alt="...">
+                  <img src="{{asset('assets/img/monsattan-distro.png')}}" class="d-block w-100" alt="...">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

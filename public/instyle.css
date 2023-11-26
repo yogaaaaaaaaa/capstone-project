@@ -30,14 +30,23 @@ body {
     position: absolute;
     bottom: -1px;
     left: 0px;
-    background-color: #ffffff;
+    background-color: transparent;
     width: 0px;
     height: 3px;
+    transform: scaleX(0);
     transition: 0.4s ease-in-out;
+    transform-origin: left;
 }
 
-.nav-item:hover .nav-link::after {
+.nav-item:hover .nav-link::after{
+    transform: scaleX(1);
     width: 100%;
+    background-color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
 }
 
 .user-pic {
@@ -557,6 +566,31 @@ button:hover {
     background-color: #eb1616;
 }
 /* Keranjang Page END */
+
+/* Tracking Page */
+.tracking-header {
+    padding-top: 4rem;
+}
+
+.form-control {
+    height: 80px;
+}
+
+.sub-track-title {
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.sub-track-title-p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.input-group-text {
+    background-color: #EB1616;
+    color: #ffffff;
+}
+
 
 /* Responsive */
 

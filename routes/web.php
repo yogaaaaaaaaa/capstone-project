@@ -3,14 +3,19 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SablonController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SablonController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DetailsController;
+
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -28,16 +33,19 @@ Route::get('/', function () {
     return view('home');
 });
 
+//The Email Verification Notice
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
+//The Email Verification Handler
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
     
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
+//Resending The Verification Email
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     
@@ -50,6 +58,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 Route::get('/dashboard', [DashboardController::class, 'checkAuthentication'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/home', [HomeController::class, 'HomeUser'])->middleware(['auth', 'verified'])->name('home');
+Route::post('/home', [HomeController::class, 'addTestimoni'])->middleware(['auth', 'verified'])->name('testimoni.store');
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
@@ -61,10 +70,16 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
+Route::get('/account', [UserController::class, 'index'])->name('user.index');
 
-Route::get('/orderSablon', [SablonController::class, 'OrderSablon']);
+
 Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->middleware(['auth', 'verified'])->name('keranjang');
 Route::get('/order', [OrderController::class, 'Order']);
 Route::get('/orderDetails', [DetailsController::class, 'Details']);
+Route::get('/orderSablon', [SablonController::class, 'OrderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
+Route::get('/tracking', [TrackingController::class, 'tracking'])->middleware(['auth', 'verified'])->name('tracking');
+Route::get('/testimoni', [TestimoniController::class, 'index'])->middleware(['auth', 'verified'])->name('testimoni.index');
+
 
 require __DIR__.'/auth.php';

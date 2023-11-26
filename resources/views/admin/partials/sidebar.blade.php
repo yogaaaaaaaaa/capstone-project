@@ -16,18 +16,11 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="{{route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a href="{{route('product.index')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Product</a>
-            <a href="" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Orders</a>
-            <a href="" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Testimonials</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Account</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="signin.html" class="dropdown-item">Admin</a>
-                    <a href="signup.html" class="dropdown-item">Customer</a>
-                    <a href="404.html" class="dropdown-item">404 Error</a>
-                    <a href="blank.html" class="dropdown-item">Blank Page</a>
-                </div>
-            </div>
+            <a href="{{route('product.index')}}" class="nav-item nav-link"><i class="fas fa-archive me-2"></i>Product</a>
+            <a href="#" class="nav-item nav-link"><i class="fas fa-shopping-bag me-2"></i>Orders</a>
+            <a href="{{route('testimoni.index')}}" class="nav-item nav-link"><i class="fas fa-quote-right me-2"></i>Testimonials</a>
+            <a href="{{route('user.index')}}" class="nav-item nav-link"><i class="fas fa-user-alt me-2"></i>Account</a>
+            <a href="#" class="nav-item nav-link"><i class="fas fa-hand-holding-usd me-2"></i>Financial</a>
         </div>
     </nav>
 </div>
