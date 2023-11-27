@@ -8,6 +8,6 @@ class OrderProductController extends Controller
 {
     //
     public function OrderProduct() {
-        return view('orderProduct');
+        return view('customer.orderProduct');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order;
 use App\Models\Testimoni;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -48,5 +49,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function testimoni() {
         return $this->hasMany(Testimoni::class);
+    }
+
+    public function order() {
+        return $this->hasMany(Order::class);
     }
 }

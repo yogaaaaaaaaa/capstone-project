@@ -72,12 +72,14 @@ Route::middleware('auth')->group(function () {
 Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
 Route::get('/account', [UserController::class, 'index'])->name('user.index');
+Route::get('/order', [OrderController::class, 'indexOrder'])->name('order.index');
 
 
 Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->middleware(['auth', 'verified'])->name('keranjang');
-Route::get('/order', [OrderController::class, 'Order']);
+Route::get('/orderSablon', [OrderController::class, 'OrderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
+Route::post('/orderSablon', [OrderController::class, 'addOrder'])->middleware(['auth', 'verified'])->name('addOrder.store');
 Route::get('/orderDetails', [DetailsController::class, 'Details']);
-Route::get('/orderSablon', [SablonController::class, 'OrderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
+// Route::get('/orderSablon', [SablonController::class, 'OrderSablon'])->middleware(['auth', 'verified'])->name('orderSablon');
 Route::get('/tracking', [TrackingController::class, 'tracking'])->middleware(['auth', 'verified'])->name('tracking');
 Route::get('/testimoni', [TestimoniController::class, 'index'])->middleware(['auth', 'verified'])->name('testimoni.index');
 

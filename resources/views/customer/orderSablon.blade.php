@@ -46,7 +46,7 @@
             {{-- Start Section --}}
             
           <section class="hero">
-            <form method="POST">
+            <form method="POST" action="{{route('addOrder.store')}}">
               @csrf
               <div class="container mt-3">
       
@@ -54,14 +54,14 @@
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                      <label class="form-label text-white" for="order">Order Name</label>
-                     <input type="text" class="form-control" id="order" placeholder="Input Name" required>
+                     <input type="text" class="form-control" id="order" name="order_name" placeholder="Input Name">
                     </div>
                   </div>
       
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                       <label class="form-label text-white" for="addres">Address</label>
-                      <input type="text" class="form-control" id="addres" placeholder="Input Address" required>
+                      <input type="text" class="form-control" id="addres" name="order_address" placeholder="Input Address">
                     </div>
                   </div>
                 </div>
@@ -70,14 +70,14 @@
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                      <label class="form-label text-white" for="number">Telphone Number / Whatsapp</label>
-                     <input type="number" class="form-control" id="number" placeholder="Input Number" required>
+                     <input type="number" class="form-control" id="number" name="no_hp" placeholder="Input Number">
                     </div>
                   </div>
       
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                       <label class="form-label text-white" for="email">Email</label>
-                      <input type="email" class="form-control email" id="email" placeholder="Input Email" required>
+                      <input type="email" class="form-control email" id="email" name="email" placeholder="Input Email">
                     </div>
                   </div>
                 </div>
@@ -86,14 +86,14 @@
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                      <label class="form-label text-white" for="upload">Upload Design</label>
-                     <input type="url" class="form-control" id="upload" placeholder="Input your url" required>
+                     <input type="text" class="form-control" id="upload" name="design_link" placeholder="Input your url">
                     </div>
                   </div>
       
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
                       <label class="form-label text-white" for="quantity">Quantity</label>
-                      <input type="number" class="form-control" id="quantity" placeholder="Input quantity" required>
+                      <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Input quantity">
                     </div>
                   </div>
                 </div>
@@ -101,80 +101,52 @@
                 <div class=" col-sm-12 col-md-12">
                   <div class=" mb-2">
                     <label class="form-label text-white" for="design">Design and screen printing information</label>
-                    <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="design" name="description" style="height: 100px"></textarea>
                   </div>
                 </div>
       
-                {{-- <div class="row">
-                  <div class="col">
-                    <div class=" mb-2">
-                     <label class="form-label text-white upload" for="upload">Upload Design</label>
-                     <div class="drag-area">
-                      <div class="icon"><i class="bi bi-cloud-arrow-up"></i></div>
-                      <p>Click to upload or drag and drop <br> MAX. File Size: 30MB</p>
-                      <button>Upload</button>
-                      <input type="file" id="upload" hidden>
-                     </div>
-                    </div>
-                  </div>
-      
-                  <div class="col">
-                    <div class=" mb-2">
-                      <label class="form-label text-white" for="design">Design and screen printing information</label>
-                      <textarea class="form-control" placeholder="Leave a comment here" id="design" style="height: 100px"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
-            {{-- End Section --}}
       
             {{-- Start Button --}}
             <div class="button">
             <div class="btn d-flex justify-content-center mx-5">
-            <button class="btn get-started text-white form-control" style="background-color: #EB1616;">Submit Order</button><br>
+            <button type="submit" class="btn get-started text-white form-control" style="background-color: #EB1616;">Submit Order</button><br>
             </div>
       
-            {{-- <div class="btn d-flex justify-content-center p-3">
-            <button class="btn get-started text-white" style="background-color: #EB1616;"><i class="bi bi-cart2"> Add To Cart</i></button>
-            </div>
-            </div> --}}
-            {{-- End Button --}}
           </form>
-          </section>
-      </body>
+        </section>
       
-          {{-- Script --}}
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-          {{-- Animation Website --}}
-          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-          <script>
-            AOS.init();
-          </script>
-          <script>
-            var nav = document.querySelector('nav');
-      
-            window.addEventListener('scroll', function(){
-                if(window.pageYOffset > 60){
-                    nav.classList.add('bg-dark', 'shadow')
-                } else {
-                    nav.classList.remove('bg-dark', 'shadow')
-                }
-            })
-      
-            window.addEventListener('scroll', function() {
-              var backToTopButton = document.querySelector('.back-to-top');
-              if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
-                backToTopButton.classList.add('show');
-              } else {
-                backToTopButton.classList.remove('show');
-              }
-            })
-      
-            let subMenu = document.getElementById("subMenu");
-            function toggleMenu(){
-              subMenu.classList.toggle("open-menu");
-            }
-      
-          </script>
-      </body>
-      </html>
+    {{-- Script --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    {{-- Animation Website --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var nav = document.querySelector('nav');
+
+      window.addEventListener('scroll', function(){
+          if(window.pageYOffset > 60){
+              nav.classList.add('bg-dark', 'shadow')
+          } else {
+              nav.classList.remove('bg-dark', 'shadow')
+          }
+      })
+
+      window.addEventListener('scroll', function() {
+        var backToTopButton = document.querySelector('.back-to-top');
+        if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
+          backToTopButton.classList.add('show');
+        } else {
+          backToTopButton.classList.remove('show');
+        }
+      })
+
+      let subMenu = document.getElementById("subMenu");
+      function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+      }
+
+    </script>
+</body>
+</html>

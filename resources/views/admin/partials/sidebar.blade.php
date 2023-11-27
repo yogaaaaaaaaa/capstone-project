@@ -17,7 +17,7 @@
         <div class="navbar-nav w-100">
             <a href="{{route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <a href="{{route('product.index')}}" class="nav-item nav-link"><i class="fas fa-archive me-2"></i>Product</a>
-            <a href="#" class="nav-item nav-link"><i class="fas fa-shopping-bag me-2"></i>Orders</a>
+            <a href="{{route('order.index')}}" class="nav-item nav-link"><i class="fas fa-shopping-bag me-2"></i>Orders</a>
             <a href="{{route('testimoni.index')}}" class="nav-item nav-link"><i class="fas fa-quote-right me-2"></i>Testimonials</a>
             <a href="{{route('user.index')}}" class="nav-item nav-link"><i class="fas fa-user-alt me-2"></i>Account</a>
             <a href="#" class="nav-item nav-link"><i class="fas fa-hand-holding-usd me-2"></i>Financial</a>

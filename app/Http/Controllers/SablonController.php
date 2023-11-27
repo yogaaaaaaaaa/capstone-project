@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class SablonController extends Controller
 {
     public function OrderSablon() {
-        return view('customer.orderSablon');
+        return view('customer.order');
     }
 }
