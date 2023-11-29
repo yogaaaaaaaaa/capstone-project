@@ -85,8 +85,12 @@
                 <div class="row">
                   <div class=" col-sm-12 col-md-6">
                     <div class=" mb-2">
-                     <label class="form-label text-white" for="upload">Upload Design</label>
-                     <input type="text" class="form-control" id="upload" name="design_link" placeholder="Input your url">
+                     <label class="form-label text-white" for="upload">Tshirt Type</label>
+                     <select class="form-select" id="tshirtType" name="type_tshirt">
+                      <option value="" selected disabled>Pilih Type Tshirt</option>
+                      <option value="Short_Sleeved">Short Sleeve T-shirt</option>
+                      <option value="Long_Sleeved">Long-sleeved T-shirt</option>
+                    </select>
                     </div>
                   </div>
       
@@ -97,11 +101,20 @@
                     </div>
                   </div>
                 </div>
-      
-                <div class=" col-sm-12 col-md-12">
-                  <div class=" mb-2">
-                    <label class="form-label text-white" for="design">Design and screen printing information</label>
-                    <textarea class="form-control" placeholder="Leave a comment here" id="design" name="description" style="height: 100px"></textarea>
+
+                <div class="row">
+                  <div class=" col-sm-12 col-md-6">
+                    <div class=" mb-2">
+                      <label class="form-label text-white" for="upload">Upload Design</label>
+                      <input type="text" class="form-control" id="upload" name="design_link" placeholder="Input your url" style="height: 50px">
+                    </div>
+                  </div>
+  
+                  <div class=" col-sm-12 col-md-6">
+                    <div class=" mb-2">
+                      <label class="form-label text-white" for="design">Design and screen printing information</label>
+                      <textarea class="form-control" placeholder="Leave a comment here" id="design" name="description" style="height: 50px"></textarea>
+                    </div>
                   </div>
                 </div>
       

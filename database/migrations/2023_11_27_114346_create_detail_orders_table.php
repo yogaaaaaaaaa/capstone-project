@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('detail_orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->enum('order_type', ['sablon', 'product']);
+            $table->enum('type_tshirt', ['Short_Sleeved', 'Long_Sleeved']);
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products');
+            $table->integer('quantity');
             $table->integer('total_units')->nullable();
             $table->integer('total_price')->nullable();
             $table->unsignedBigInteger('user_id');

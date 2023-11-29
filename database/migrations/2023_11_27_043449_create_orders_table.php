@@ -16,11 +16,10 @@ return new class extends Migration
             $table->string('order_code')->unique()->nullable();
             $table->string('order_name')->nullable();
             $table->string('order_address')->nullable();
-            $table->enum('order_type', ['sablon', 'product']);
             $table->string('no_hp');
             $table->string('email');
             $table->string('design_link')->nullable();
-            $table->integer('quantity');
+            // $table->integer('quantity');
             $table->text('description');
             $table->enum('payment_status', ['Belum Bayar', 'Sudah Bayar']);
             $table->enum('order_status', ['Belum diproses', 'Sedang diproses', 'Selesai', 'Dikirim']);

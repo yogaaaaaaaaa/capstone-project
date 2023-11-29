@@ -54,16 +54,21 @@
               <th scope="col">Order Name</th>
               <th scope="col">Order Address</th>
               <th scope="col">Order Type</th>
+              <th scope="col">Type Tshirt</th>
+              <th scope="col">Quantity</th>
               <th scope="col">Price</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ( as )              
+            @foreach ($orderDetail as $item)              
             <tr>
-              <th scope="row"><img src="{{ asset("assets/img/product.jpeg") }}" class="img-fluid rounded-start" style="max-width: 100%;" alt="..."></th>
-              <td>Product 1</td>
-              <td><input type="number" value="1" class="price form-control-sm"></td>
-              <td>Rp25.000</td>
+              <th scope="row">Not Gambar</th>
+              <td>{{$item->order->order_name}}</td>
+              <td>{{$item->order->order_address}}</td>
+              <td>{{$item->order_type}}</td>
+              <td>{{$item->type_tshirt}}</td>
+              <td>{{$item->quantity}}</td>
+              <td>{{$item->total_units}}</td>
             </tr>
             @endforeach
         </table>
@@ -77,7 +82,7 @@
             <div class="card-body">
                 <div class="row price">
                     <div class="col-8">Total Price</div>
-                    <div class="col-4">Rp25.000</div>
+                    <div class="col-4">{{$item->total_price}}</div>
                   </div>
             </div>
           </div>
@@ -104,6 +109,14 @@
       AOS.init();
     </script> --}}
 
+    <script>
+      window.onload = function() {
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function() {
+          window.history.pushState(null, "", window.location.href);
+        };
+      };
+    </script>    
     
     <script>
       var nav = document.querySelector('nav');
