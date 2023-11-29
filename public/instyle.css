@@ -476,7 +476,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(190deg, #212529, #eb1616);
+    /* background: linear-gradient(190deg, #212529, #eb1616); */
 }
 .container {
     width: 100%;

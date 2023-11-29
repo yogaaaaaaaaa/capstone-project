@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
+    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <title>Home Hang Siji</title>
 
     {{-- Google Web Fonts --}}
@@ -18,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Style CSS --}}
-    <link rel="stylesheet" href="{{asset('detail.css')}}">
+    <link rel="stylesheet" href="{{asset('instyle.css')}}">
 
     {{-- Animation Website --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,93 +35,32 @@
     {{-- Navbar End --}}
 
     {{-- Start Content --}}
-    <section class="hero">
-      <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
-        <div class="row h-100">
-          <div class="d-flex text-white text-center align-items-center" style="font-size: 20px">
-                <p>Detail your order</p>
-          </div>
-        </div>
-      </div>
-      {{-- End Content --}}
-
-      {{-- Start Section --}}
-      
-    <section class="hero">
-      <form method="POST">
-        @csrf
+      <div class="container-fluid hero">
         <div class="container">
-          <div class="col-sm">
-        <table class="table" style="background: #fff">
-          <thead>
-            <tr>
-              <th scope="col">Image</th>
-              <th scope="col">Order Name</th>
-              <th scope="col">Order Address</th>
-              <th scope="col">Order Type</th>
-              <th scope="col">Type Tshirt</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($orderDetail as $item)              
-            <tr>
-              <th scope="row">Not Gambar</th>
-              <td>{{$item->order->order_name}}</td>
-              <td>{{$item->order->order_address}}</td>
-              <td>{{$item->order_type}}</td>
-              <td>{{$item->type_tshirt}}</td>
-              <td>{{$item->quantity}}</td>
-              <td>{{$item->total_units}}</td>
-            </tr>
-            @endforeach
-        </table>
-      </div>
-      </div>
-      {{-- End Section --}}
-      
-      {{-- Start Price --}}
-      <div class="container text-center">
-        <div class="card">
-            <div class="card-body">
-                <div class="row price">
-                    <div class="col-8">Total Price</div>
-                    <div class="col-4">{{$item->total_price}}</div>
-                  </div>
+          <div class="d-flex distance">
+            <div class="card p-4" style="width: 50%">
+              <h2>Order Information</h2>
+              <p>Order Code: {{ $orderSablon->order_code }}</p>
+              <p>Order Name: {{ $orderSablon->order_name }}</p>
+              <p>Order Address: {{ $orderSablon->order_address }}</p>
+            </div>
+            <div class="card p-4 ms-4" style="width: 50%">
+              <h2>Order Details</h2>
+              <p>Order Type: {{ $orderDetail->order_type }}</p>
+              <p>T-shirt Type: {{ $orderDetail->type_tshirt }}</p>
+              <p>Quantity: {{ $orderDetail->quantity }}</p>
+              <p>Total Units: {{ $orderDetail->total_units }}</p>
             </div>
           </div>
+          {{-- <form action="" method="post"> --}}
+            {{-- @csrf --}}
+            {{-- <input type="hidden" name="snapToken" value="{{ $snapToken }}"> --}}
+            <button id="pay-button">Proceed to Payment</button>
+          {{-- </form> --}}
+        </div>
       </div>
-      {{-- End Price --}}
 
-      {{-- Start Button --}}
-      <div class="button m-3">
-      <div class="btn d-flex justify-content-center mx-5">
-      <button class="btn get-started text-white form-control" style="background-color: #EB1616;">Payment</button><br>
-      </div>
-      {{-- End Button --}}
-    </form>
-
-    
-
-    </section>
-</body>
-    {{-- Script --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    {{-- Animation Website --}}
-   {{--  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script> --}}
-
-    <script>
-      window.onload = function() {
-        window.history.pushState(null, "", window.location.href);
-        window.onpopstate = function() {
-          window.history.pushState(null, "", window.location.href);
-        };
-      };
-    </script>    
     
     <script>
       var nav = document.querySelector('nav');
@@ -142,7 +86,33 @@
       function toggleMenu(){
         subMenu.classList.toggle("open-menu");
       }
-
     </script>
+
+    <script type="text/javascript">
+      // For example trigger on button clicked, or any time you need
+      var payButton = document.getElementById('pay-button');
+      payButton.addEventListener('click', function () {
+        // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+        window.snap.pay('{{$snapToken}}', {
+          onSuccess: function(result){
+            /* You may add your own implementation here */
+            alert("payment success!"); console.log(result);
+          },
+          onPending: function(result){
+            /* You may add your own implementation here */
+            alert("wating your payment!"); console.log(result);
+          },
+          onError: function(result){
+            /* You may add your own implementation here */
+            alert("payment failed!"); console.log(result);
+          },
+          onClose: function(){
+            /* You may add your own implementation here */
+            alert('you closed the popup without finishing the payment');
+          }
+        })
+      });
+    </script>
+
 </body>
 </html>
