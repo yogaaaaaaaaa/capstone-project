@@ -150,7 +150,7 @@ body {
 .hero {
     background: linear-gradient(0deg, #212529, #eb1616);
     /* background: linear-gradient(160deg, #EB1616, #151515); */
-    /* padding: 10% 0%; */
+    padding: 10% 0%;
     /* height: 100vh; */
     /* width: 100%; */
 }
@@ -639,5 +639,14 @@ button:hover {
     .text-testi-form {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .detail h2 {
+        font-size: 13px;
+    }
+    .detail p {
+        font-size: 10px;
+    }
+    .table {
+        font-size: 6px;
     }
 }

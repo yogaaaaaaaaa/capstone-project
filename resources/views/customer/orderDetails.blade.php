@@ -35,8 +35,8 @@
     {{-- Navbar End --}}
 
     {{-- Start Content --}}
-      <div class="container-fluid hero">
-        <div class="container">
+      <div class="container-fluid hero vh-100">
+        <div class="container detail">
           <div class="d-flex distance">
             <div class="card p-4" style="width: 50%">
               <h2>Order Information</h2>
