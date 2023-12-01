@@ -79,8 +79,9 @@ class OrderController extends Controller
                 'order_id' => $orderSablon->id,
                 'gross_amount' => $orderDetail->total_price,
             ),
-            'customer_details' => array(
-                'order_name' => $request->order_name,
+            'customer_details' => array(    
+                'first_name' => $request->order_name,
+                'last_name' => '',
                 'order_address' => $request->order_address,
                 'email' => $request->email,
                 'phone' => $request->no_hp,
@@ -110,41 +111,31 @@ class OrderController extends Controller
 
     public function index_detailOrder() {
         $orderDetail = DetailOrder::all();
+        // $order = Order::find($id)->with('detailorder');
         return view('admin.content.content-main-detail-order', compact('orderDetail'));
     }
 
-    // public function index_detailOrder_user() {
-    //     $userId = Auth::id();
-    //     $orderDetail = DetailOrder::where('user_id', $userId)->whereHas('order', function ($query) {
-    //         $query->where('payment_status', 'Belum Bayar');
-    //     })->get();
+    public function callback(Request $request) {
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+        if($hashed == $request->signature_key){
+            if($request->transaction_status == 'capture'){
+                $order = Order::find($request->order_id);
+                if ($order) {
+                    $order->payment_status = 'Sudah Bayar';
+                    $order->save();
+                }
+            }
+        }
+    }
 
-    //     // Set your Merchant Server Key
-    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
-    //     // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-    //     \Midtrans\Config::$isProduction = false;
-    //     // Set sanitization on (default)
-    //     \Midtrans\Config::$isSanitized = true;
-    //     // Set 3DS transaction for credit card to true
-    //     \Midtrans\Config::$is3ds = true;
+    public function orderView() {
+        $viewOrder = Order::all()->first();
+        return view('admin.layouts.view-order', compact('viewOrder'));
+    }
 
-    //     $params = array(
-    //         'transaction_details' => array(
-    //             'order_id' => $orderDetail->order->id,
-    //             'gross_amount' => $orderDetail->total_price,
-    //         ),
-    //         'customer_details' => array(
-    //             'order_name' => $orderDetail->order->order_name,
-    //             'order_address' => $orderDetail->order->order_address,
-    //             'order_type' => $orderDetail->order_type,
-    //             'type_tshirt' => $orderDetail->type_tshirt  ,
-    //             'quantity' => $orderDetail->quantity,
-    //             'total_units' => $orderDetail->total_units,
-    //         ),
-    //     );
-
-    //     $snapToken = \Midtrans\Snap::getSnapToken($params);
-    //     return view('customer.orderDetails', compact('orderDetail'));
-    // }
-
+    public function invoice($id) {
+        $order = Order::find($id)->with('detailorder');
+        return view('customer.invoice', compact('order'));
+    }
 }
