@@ -38,13 +38,13 @@
       <div class="container-fluid hero vh-100">
         <div class="container detail">
           <div class="d-flex distance">
-            <div class="card p-4" style="width: 50%">
+            <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Information</h2>
               <p>Order Code: {{ $orderSablon->order_code }}</p>
               <p>Order Name: {{ $orderSablon->order_name }}</p>
               <p>Order Address: {{ $orderSablon->order_address }}</p>
             </div>
-            <div class="card p-4 ms-4" style="width: 50%">
+            <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Details</h2>
               <p>Order Type: {{ $orderDetail->order_type }}</p>
               <p>T-shirt Type: {{ $orderDetail->type_tshirt }}</p>

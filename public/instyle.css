@@ -150,7 +150,7 @@ body {
 .hero {
     background: linear-gradient(0deg, #212529, #eb1616);
     /* background: linear-gradient(160deg, #EB1616, #151515); */
-    padding: 10% 0%;
+    /* padding: 10% 0%; */
     /* height: 100vh; */
     /* width: 100%; */
 }
@@ -591,6 +591,10 @@ button:hover {
     color: #ffffff;
 }
 
+.distance {
+    column-gap: 20px;
+}
+
 
 /* Responsive */
 
@@ -628,6 +632,7 @@ button:hover {
     .distance {
         padding-top: 25%;
         padding-bottom: 10%;
+        flex-wrap: wrap;
     }
     .home-heading {
         font-size: 30px;
@@ -641,7 +646,7 @@ button:hover {
         padding-right: 10px;
     }
     .detail h2 {
-        font-size: 13px;
+        font-size: 15px;
     }
     .detail p {
         font-size: 10px;
