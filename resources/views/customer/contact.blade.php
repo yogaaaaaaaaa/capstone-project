@@ -26,45 +26,7 @@
     
 </head>
 <body>
-    {{-- Navbar Start --}}
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-          <div class="container p-lg-3">
-            <a class="navbar-brand text-white" href="#" style="font-weight: 700; font-family:'Poppins'; font-size:1.5rem;">Hang Siji</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Profil</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Service
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Order Sablon</a></li>
-                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Tracking</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Team</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
-                </li>
-              </ul>
-              <a href="{{route('login')}}" class="me-3" style="text-decoration: none; color: rgb(255, 255, 255);">Log In</a>
-              <button class="btn get-started text-white" style="background-color: #EB1616;">Get Started</button>
-            </div>
-          </div>
-      </nav>
-    </div>
-    {{-- Navbar End --}}
+    @include('customer.partials.navbar')
 
     {{-- Section 1 Start --}}
     <section class="contact">

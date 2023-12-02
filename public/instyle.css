@@ -595,6 +595,18 @@ button:hover {
     column-gap: 20px;
 }
 
+.code-text {
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+.title-code {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+
 
 /* Responsive */
 

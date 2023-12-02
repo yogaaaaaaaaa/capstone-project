@@ -134,8 +134,35 @@ class OrderController extends Controller
         return view('admin.layouts.view-order', compact('viewOrder'));
     }
 
-    public function invoice($id) {
-        $order = Order::find($id)->with('detailorder');
-        return view('customer.invoice', compact('order'));
-    }
+    public function getOrderDetails(Request $request)
+    {
+        $orderCode = $request->input('order_code');
+    
+        $order = Order::where('order_code', $orderCode)->first();
+        $detailOrder = $order ? DetailOrder::where('order_id', $order->id)->first() : null;
+    
+        if ($order && $detailOrder) {
+            $data = [
+                'order_name' => $order->order_name,
+                'order_address' => $order->order_address,
+                'type_tshirt' => $detailOrder->type_tshirt,
+                'quantity' => $detailOrder->quantity,
+                'total_price' => $detailOrder->total_price,
+                'payment_status' => $order->payment_status,
+                'order_status' => $order->order_status,
+            ];
+        } else {
+            $data = [
+                'order_name' => 'Not specified',
+                'order_address' => 'Not specified',
+                'type_tshirt' => 'Not specified',
+                'quantity' => 'Not specified',
+                'total_price' => 'Not specified',
+                'payment_status' => 'Not specified',
+                'order_status' => 'Not specified',
+            ];
+        }
+    
+        return response()->json($data);
+    }    
 }

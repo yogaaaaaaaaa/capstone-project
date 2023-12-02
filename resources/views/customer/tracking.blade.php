@@ -44,23 +44,9 @@
           </div>
         </form>
         <div class="pb-5">
-          {{-- <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Order Code</th>
-                <th scope="col">Order Name</th>
-                <th scope="col">Order Date</th>
-                <th scope="col">Order Address</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Payment Status</th>
-                <th scope="col">Status Order</th>
-                <th scope="col">Progres Order</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table> --}}
+          <div class="card order-info" hidden>
+
+          </div>
         </div>
       </div>
     </div>
@@ -110,5 +96,51 @@
         subMenu.classList.toggle("open-menu");
       }
     </script>
+    <script>
+      // Mengambil referensi ke elemen input dan tombol pada form
+      const inputOrderCode = document.querySelector('.form-control');
+      const trackButton = document.querySelector('.input-group-text');
+      const orderInfoDiv = document.querySelector('.order-info');
+
+      trackButton.addEventListener('click', function(event) {
+          event.preventDefault(); // Menghindari form untuk melakukan submit default
+
+          // Mengambil nilai dari input order code
+          const orderCode = inputOrderCode.value;
+
+          // Kirim request ke server untuk mendapatkan data order
+          fetch(`/get-order-details?order_code=${orderCode}`)
+              .then(response => response.json())
+              .then(data => {
+                  // Menampilkan data order pada halaman
+                  let paymentStatusClass = '';
+                  if (data.payment_status === 'Belum Bayar') {
+                      paymentStatusClass = 'badge bg-warning';
+                  } else if (data.payment_status === 'Sudah Bayar') {
+                      paymentStatusClass = 'badge bg-success';
+                  }
+                  orderInfoDiv.innerHTML = `
+                      <div class="card order-info">
+                          <div class="card-body">
+                              <p>Order Name: ${data.order_name}</p>
+                              <p>Order Address: ${data.order_address}</p>
+                              <p>Type Tshirt: ${data.type_tshirt}</p>
+                              <p>Type Quantity: ${data.quantity}</p>
+                              <p>Total Price: ${data.total_price}</p>
+                              <p>Payment Status: <span class="${paymentStatusClass}">${data.payment_status}</span></p>
+                              <p>Order Status: ${data.order_status}</p>
+                          </div>
+                      </div>
+                  `;
+                  orderInfoDiv.removeAttribute('hidden'); // Menampilkan card order-info setelah mendapat data
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  orderInfoDiv.innerHTML = `<p>Order details not found.</p>`; // Menampilkan pesan jika terjadi kesalahan atau data tidak ditemukan
+                  orderInfoDiv.removeAttribute('hidden'); // Menampilkan card order-info setelah pesan error
+              });
+      });
+    </script>
+
 </body>
 </html>

@@ -17,17 +17,17 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{route('orderSablon')}}">Order Sablon</a></li>
-                <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
+                <li><a class="dropdown-item" href="{{route('orderProduct')}}">Order Tshirt</a></li>
             </ul>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{{route('tracking')}}">Tracking</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
+            <a class="nav-link" href="{{route('team.index')}}">Team</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{{route('contact.index')}}">Contact</a>
             </li>
         </ul>
         <img src="{{asset('assets/img/user.jpg')}}" alt="" class="user-pic" onclick="toggleMenu()">

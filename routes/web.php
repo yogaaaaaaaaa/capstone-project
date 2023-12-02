@@ -3,19 +3,23 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\SablonController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeranjangController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\DetailsController;
-
 use App\Http\Controllers\TestimoniController;
+use App\Http\Controllers\OrderProductController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -32,6 +36,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact.index');
+Route::get('/team', [TeamController::class, 'team'])->name('team.index');
 
 //The Email Verification Notice
 Route::get('/email/verify', function () {
@@ -72,10 +79,13 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/home', [HomeController::class, 'addTestimoni'])->name('testimoni.store');
     Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->name('keranjang');
     Route::get('/orderSablon', [OrderController::class, 'OrderSablon'])->name('orderSablon');
+    Route::get('/orderProduct', [OrderProductController::class, 'OrderProduct'])->name('orderProduct');
     Route::post('/orderSablon', [OrderController::class, 'addOrder'])->name('addOrder.store');
     Route::get('/orderSablon/Detail', [OrderController::class, 'index_detailOrder_user'])->name('detailorder_user.index');
     Route::get('/tracking', [TrackingController::class, 'tracking'])->name('tracking');
-    Route::get('/invoice/{id}', [OrderController::class. 'invoice']);
+
+    Route::get('/print-invoice/{orderSablonId}', [InvoiceController::class, 'printInvoice']);
+    Route::get('/get-order-details', [OrderController::class, 'getOrderDetails']);
     
     Route::get('/unauthorized', [HomeController::class, 'error_index'])->name('errorUnauthorized');
 });
