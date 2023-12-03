@@ -39,7 +39,7 @@
     {{-- Start Content --}}
       <div class="container-fluid hero vh-100">
         <div class="container detail">
-          <div class="d-flex distance">
+          <div class="d-flex distance information">
             <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Information</h2>
               <p>Order Code: {{ $orderSablon->order_code }}</p>
