@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\DetailOrder;
 use Illuminate\Http\Request;
+use App\Models\FinancialReport;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -124,6 +125,12 @@ class OrderController extends Controller
                 if ($order) {
                     $order->payment_status = 'Sudah Bayar';
                     $order->save();
+
+                    #save database keuangan
+                    $financialReport = new FinancialReport();
+                    $financialReport->order_id = $order->id;
+                    $financialReport->amount_of_income = $order->detailorder->total_price;
+                    $financialReport->save();
                 }
             }
         }

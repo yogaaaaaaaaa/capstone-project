@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\DetailOrder;
+use App\Models\FinancialReport;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -21,5 +22,9 @@ class Order extends Model
 
     public function detailorder() {
         return $this->hasMany(DetailOrder::class);
+    }
+
+    public function financialreport() {
+        return $this->hasMany(FinancialReport::class);
     }
 }

@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\OrderProductController;
+use App\Http\Controllers\FinancialReportController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -71,6 +72,8 @@ Route::group(['middleware' => 'admin', 'auth', 'verified'], function () {
     Route::get('/order/detail', [OrderController::class, 'index_detailOrder'])->name('orderDetail.index');
     Route::get('/testimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
     Route::get('/order/info', [OrderController::class, 'orderView'])->name('vieworder.index');
+    Route::get('/financial-report', [FinancialReportController::class, 'showFinancialReport'])->name('financial.report');
+
 });
 
 Route::middleware(['auth', 'verified'])->group(function() {

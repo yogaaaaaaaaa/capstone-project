@@ -20,7 +20,7 @@
             <a href="{{route('order.index')}}" class="nav-item nav-link"><i class="fas fa-shopping-bag me-2"></i>Orders</a>
             <a href="{{route('testimoni.index')}}" class="nav-item nav-link"><i class="fas fa-quote-right me-2"></i>Testimonials</a>
             <a href="{{route('user.index')}}" class="nav-item nav-link"><i class="fas fa-user-alt me-2"></i>Account</a>
-            <a href="#" class="nav-item nav-link"><i class="fas fa-hand-holding-usd me-2"></i>Financial</a>
+            <a href="{{route('financial.report')}}" class="nav-item nav-link"><i class="fas fa-hand-holding-usd me-2"></i>Financial</a>
         </div>
     </nav>
 </div>
