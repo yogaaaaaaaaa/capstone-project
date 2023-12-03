@@ -8,6 +8,10 @@ body {
     padding-top: 5.5rem;
 }
 
+.mar-t {
+    padding-top: 8rem;
+}
+
 /* Navbar Start */
 .navbar {
     padding: 15px 18px !important;
@@ -150,7 +154,7 @@ body {
 .hero {
     background: linear-gradient(0deg, #212529, #eb1616);
     /* background: linear-gradient(160deg, #EB1616, #151515); */
-    padding: 10% 0%;
+    /* padding: 10% 0%; */
     /* height: 100vh; */
     /* width: 100%; */
 }
@@ -591,8 +595,20 @@ button:hover {
     color: #ffffff;
 }
 
-.distance {
+.information {
     column-gap: 20px;
+}
+
+.code-text {
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+.title-code {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
 }
 
 
@@ -644,5 +660,14 @@ button:hover {
     .text-testi-form {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .detail h2 {
+        font-size: 13px;
+    }
+    .detail p {
+        font-size: 10px;
+    }
+    .table {
+        font-size: 6px;
     }
 }

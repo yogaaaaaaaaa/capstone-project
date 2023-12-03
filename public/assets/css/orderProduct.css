@@ -150,3 +150,34 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (max-width: 760px) {
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
+    .card {
+            max-width: 100%;
+    }
+    
+    .card > .row {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar {
+        background-color: rgb(33, 37, 41);
+    }
+
+    .hero {
+        height: 120vh;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card > .row {
+        flex-direction: column;
+    }
+}

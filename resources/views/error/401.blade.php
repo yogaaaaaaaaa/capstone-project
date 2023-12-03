@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>401 Unauthorized</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -18,7 +19,7 @@
                 <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
                 <h1 class="display-1 fw-bold">401</h1>
                 <h1 class="mb-4">Unauthorized</h1>
-                <p class="mb-4">Sorry, an error occurred while authenticating with Google.</p>
+                <p class="mb-4">Sorry, there was an authentication error, please log in first according to your role</p>
                 <a class="btn btn-primary rounded-pill py-3 px-5" href="{{route('login')}}">Go Back To Login Page</a>
             </div>
         </div>

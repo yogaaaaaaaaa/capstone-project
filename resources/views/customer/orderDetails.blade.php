@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
     <script type="text/javascript"
       src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="SET_YOUR_CLIENT_KEY_HERE"></script>
+      data-client-key="{{config('midtrans.client_key')}}"></script>
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
     <title>Home Hang Siji</title>
 
@@ -37,26 +39,29 @@
     {{-- Start Content --}}
       <div class="container-fluid hero vh-100">
         <div class="container detail">
-          <div class="d-flex distance">
+          <div class="d-flex mar-t information">
             <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Information</h2>
               <p>Order Code: {{ $orderSablon->order_code }}</p>
               <p>Order Name: {{ $orderSablon->order_name }}</p>
               <p>Order Address: {{ $orderSablon->order_address }}</p>
+              <p>Order Type: {{ $orderDetail->order_type }}</p>
             </div>
             <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Details</h2>
-              <p>Order Type: {{ $orderDetail->order_type }}</p>
               <p>T-shirt Type: {{ $orderDetail->type_tshirt }}</p>
               <p>Quantity: {{ $orderDetail->quantity }}</p>
-              <p>Total Units: {{ $orderDetail->total_units }}</p>
+              <p>Unit Price: Rp. {{ $orderDetail->total_units }}</p>
+              <p>Total Price: Rp. {{ $orderDetail->total_price }}</p>
             </div>
           </div>
-          {{-- <form action="" method="post"> --}}
-            {{-- @csrf --}}
-            {{-- <input type="hidden" name="snapToken" value="{{ $snapToken }}"> --}}
-            <button id="pay-button">Proceed to Payment</button>
-          {{-- </form> --}}
+          <p class="text-white text-center">"Check your order details, and immediately checkout the payment, so that your order will be processed immediately... Thank you"</p>
+          <button id="pay-button" class="w-100">Proceed to Payment</button>
+          <form action="{{route('orders.delete', ['id' => Auth::id()])}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="w-100 btn btn-danger">Cancel Order</button>
+          </form>
         </div>
       </div>
 
@@ -96,7 +101,9 @@
         window.snap.pay('{{$snapToken}}', {
           onSuccess: function(result){
             /* You may add your own implementation here */
-            alert("payment success!"); console.log(result);
+            // alert("payment success!");
+            window.location.href = '/print-invoice/{{$orderSablon->id}}';
+            console.log(result);
           },
           onPending: function(result){
             /* You may add your own implementation here */
