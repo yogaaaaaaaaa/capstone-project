@@ -39,26 +39,29 @@
     {{-- Start Content --}}
       <div class="container-fluid hero vh-100">
         <div class="container detail">
-          <div class="d-flex distance information">
+          <div class="d-flex mar-t information">
             <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Information</h2>
               <p>Order Code: {{ $orderSablon->order_code }}</p>
               <p>Order Name: {{ $orderSablon->order_name }}</p>
               <p>Order Address: {{ $orderSablon->order_address }}</p>
+              <p>Order Type: {{ $orderDetail->order_type }}</p>
             </div>
             <div class="card p-4 mb-2" style="width: 50%">
               <h2>Order Details</h2>
-              <p>Order Type: {{ $orderDetail->order_type }}</p>
               <p>T-shirt Type: {{ $orderDetail->type_tshirt }}</p>
               <p>Quantity: {{ $orderDetail->quantity }}</p>
-              <p>Total Units: {{ $orderDetail->total_units }}</p>
+              <p>Unit Price: Rp. {{ $orderDetail->total_units }}</p>
+              <p>Total Price: Rp. {{ $orderDetail->total_price }}</p>
             </div>
           </div>
-          {{-- <form action="" method="post"> --}}
-            {{-- @csrf --}}
-            {{-- <input type="hidden" name="snapToken" value="{{ $snapToken }}"> --}}
-            <button id="pay-button">Proceed to Payment</button>
-          {{-- </form> --}}
+          <p class="text-white text-center">"Check your order details, and immediately checkout the payment, so that your order will be processed immediately... Thank you"</p>
+          <button id="pay-button" class="w-100">Proceed to Payment</button>
+          <form action="{{route('orders.delete', ['id' => Auth::id()])}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="w-100 btn btn-danger">Cancel Order</button>
+          </form>
         </div>
       </div>
 

@@ -81,6 +81,8 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/orderSablon', [OrderController::class, 'OrderSablon'])->name('orderSablon');
     Route::get('/orderProduct', [OrderProductController::class, 'OrderProduct'])->name('orderProduct');
     Route::post('/orderSablon', [OrderController::class, 'addOrder'])->name('addOrder.store');
+    Route::delete('/orders/delete/{id}', [OrderController::class, 'deleteOrder'])->name('orders.delete');
+
     Route::get('/orderSablon/Detail', [OrderController::class, 'index_detailOrder_user'])->name('detailorder_user.index');
     Route::get('/tracking', [TrackingController::class, 'tracking'])->name('tracking');
 

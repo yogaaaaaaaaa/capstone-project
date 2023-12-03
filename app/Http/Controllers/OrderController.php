@@ -164,5 +164,12 @@ class OrderController extends Controller
         }
     
         return response()->json($data);
-    }    
+    }
+
+    public function deleteOrder($id) {
+        $orders = Order::where('user_id', $id)->latest('created_at')->first();
+        $orders->delete();
+
+        return redirect()->route('orderSablon');
+    }
 }
