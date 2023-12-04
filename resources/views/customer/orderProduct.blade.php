@@ -14,7 +14,8 @@
 
     <section class="hero">
         <!--Navbar-->
-      @include('customer.partials.navbar')
+        @include('customer.partials.navbar')
+        <!--End Navbar-->
 
         <!--Start Heading-->
         <div class="container-fluid d-flex justify-content-center mt-5" style="background-color: #212529; height:90px;">
@@ -28,146 +29,23 @@
 
         <!--Product list-->
         <div class="row pb-2 mt-5 mb-3 d-flex justify-content-center ">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
+            @foreach ($products as $product)
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="{{$image}}" class="img-fluid rounded-start object-fit-cover " alt="...">
+                        </div>
+                    <div class="col-md-6">
+                        <div class="card-body pt-0">
+                            <p class="product-category"><small class="text-body-secondary">{{$categories}}</small></p>
+                            <h3 class="product-name">{{$name_product}}</h3>
+                            <p class="product-price">{{$price}}</p>
+                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
                         </div>
                     </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
-                  </div>
                 </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-6">
-                    <img src="{{asset('assets/img/kaos1.jpg')}}" class="img-fluid rounded-start object-fit-cover " alt="...">
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card-body pt-0">
-                        <p class="product-category"><small class="text-body-secondary">Product Category</small></p>
-                        <h3 class="product-name">Product name</h3>
-                        <p class="product-price">Rp.10.000,00</p>
-                        <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
-                        <div class="checkout-button mt-5">
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #EB1616">Submit Order</button>
-                            <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">Add to cart
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
-                                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
         <!--End Product List-->
 
