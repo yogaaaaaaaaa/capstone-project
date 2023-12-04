@@ -61,9 +61,10 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::group(['middleware' => 'admin', 'auth', 'verified'], function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard-admin');
-    })->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('admin.dashboard-admin');
+    // })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
 
     Route::resource('product', ProductController::class);
     Route::resource('category', CategoryController::class);
@@ -77,7 +78,6 @@ Route::group(['middleware' => 'admin', 'auth', 'verified'], function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::get('/dashboard', [DashboardController::class, 'checkAuthentication'])->name('dashboard');
     Route::get('/home', [HomeController::class, 'HomeUser'])->name('home');
     Route::post('/home', [HomeController::class, 'addTestimoni'])->name('testimoni.store');
     Route::get('/keranjang', [KeranjangController::class, 'keranjang'])->name('keranjang');

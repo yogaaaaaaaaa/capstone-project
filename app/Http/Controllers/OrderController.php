@@ -16,7 +16,7 @@ class OrderController extends Controller
     }
 
     public function indexOrder() {
-        $order = Order::all();
+        $order = Order::simplePaginate(10);
 
         return view('admin.content.content-main-order', compact('order'));
     }
@@ -111,7 +111,7 @@ class OrderController extends Controller
     }
 
     public function index_detailOrder() {
-        $orderDetail = DetailOrder::all();
+        $orderDetail = DetailOrder::simplePaginate(10);
         // $order = Order::find($id)->with('detailorder');
         return view('admin.content.content-main-detail-order', compact('orderDetail'));
     }
@@ -125,12 +125,6 @@ class OrderController extends Controller
                 if ($order) {
                     $order->payment_status = 'Sudah Bayar';
                     $order->save();
-
-                    #save database keuangan
-                    $financialReport = new FinancialReport();
-                    $financialReport->order_id = $order->id;
-                    $financialReport->amount_of_income = $order->detailorder->total_price;
-                    $financialReport->save();
                 }
             }
         }

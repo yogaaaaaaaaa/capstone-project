@@ -20,6 +20,7 @@
 
     {{-- Style CSS --}}
     <link rel="stylesheet" href="{{asset('instyle.css')}}">
+    <link rel="stylesheet" href="{{asset('team-contact.css')}}">
 
     {{-- Animation Website --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -112,5 +113,26 @@
     <script>
       AOS.init();
     </script>
+        <script>
+          var nav = document.querySelector('nav');
+    
+          window.addEventListener('scroll', function(){
+              if(window.pageYOffset > 60){
+                  nav.classList.add('bg-dark', 'shadow')
+              } else {
+                  nav.classList.remove('bg-dark', 'shadow')
+              }
+          })
+    
+          window.addEventListener('scroll', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) { // Ubah nilai 300 sesuai dengan posisi scroll yang diinginkan
+              backToTopButton.classList.add('show');
+            } else {
+              backToTopButton.classList.remove('show');
+            }
+          })
+    
+        </script>
 </body>
 </html>

@@ -21,9 +21,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($order as $item)
+                    @foreach ($order as $key => $item)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{$order->firstItem() + $key}}</td>
                             <td>{{$item->order_code}}</td>
                             <td>{{$item->order_name}}</td>
                             <td>
@@ -46,6 +46,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center" style="overflow: hidden;">
+                {{ $order->links() }}
+            </div>
         </div>
     </div>
 </div>
