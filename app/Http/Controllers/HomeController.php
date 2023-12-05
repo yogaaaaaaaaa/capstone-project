@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function HomeUser() {
-        return view('customer.home');
+        $testimonies = Testimoni::orderBy('created_at', 'desc')->take(3)->get();
+        return view('customer.home', compact('testimonies'));
     }
 
     public function addTestimoni(Request $request) {

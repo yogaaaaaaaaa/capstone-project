@@ -40,7 +40,7 @@
                             <td>{{$item->order_status}}</td>
                             <td>
                                 <a href="{{route('vieworder.index')}}" class="btn btn-info mx-2"><i class="fa-solid fa-circle-info" style="color: #ffffff;"></i></a>
-                                <a href="" class="btn btn-warning mx-2"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
+                                <a href="{{route('order.edit', $item->id)}}" class="btn btn-warning mx-2"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
                             </td>
                         </tr>
                     @endforeach

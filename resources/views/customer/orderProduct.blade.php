@@ -33,13 +33,13 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img src="{{$image}}" class="img-fluid rounded-start object-fit-cover " alt="...">
+                            <img src="{{ asset('images/content/'.$product->image) }}" class="img-fluid rounded-start object-fit-cover " alt="Product Image">
                         </div>
                     <div class="col-md-6">
                         <div class="card-body pt-0">
-                            <p class="product-category"><small class="text-body-secondary">{{$categories}}</small></p>
-                            <h3 class="product-name">{{$name_product}}</h3>
-                            <p class="product-price">{{$price}}</p>
+                            <p class="product-category"><small class="text-body-secondary">{{$product->category->name}}</small></p>
+                            <h3 class="product-name">{{$product->name_product}}</h3>
+                            <p class="product-price">Rp. {{$product->price}}</p>
                             <button class="border-0 rounded-3 p-2 text-white" style="background: #212529">View Product</button>
                         </div>
                     </div>

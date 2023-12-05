@@ -173,4 +173,29 @@ class OrderController extends Controller
 
         return redirect()->route('orderSablon');
     }
+
+    public function editOrder($id)
+    {
+        $order = Order::findOrFail($id);
+        return view('admin.layouts.edit-order-proses', compact('order'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateOrder(Request $request, $id)
+    {
+        $order = Order::find($id);
+
+        // Validasi input menggunakan metode in_array() dengan daftar nilai ENUM
+        $validatedData = $request->validate([
+            'order_status' => 'required|in:' . implode(',', $order->status_options),
+        ]);
+    
+        // Set nilai order_status dari input yang valid
+        $order->order_status = $validatedData['order_status'];
+        $order->save();
+    
+        return redirect()->route('order.index');
+    }
 }

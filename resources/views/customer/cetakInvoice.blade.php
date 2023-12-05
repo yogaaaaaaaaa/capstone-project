@@ -125,8 +125,6 @@
     
 </head>
 <body>
-    {{-- @include('customer.partials.navbar') --}}
-
     <section class="vh-100 pt-2">
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
@@ -188,10 +186,6 @@
 				</tr>
 			</table>
 		</div>
-        <div class="btn d-flex justify-content-center mt-4">
-            <a href="{{route('print.invoice', ['orderSablonId' => $orderSablon->id])}}" class="btn btn-danger mr-2" style="margin-right: 10px;">Cetak Invoice Pemesanan Anda</a>
-            <a href="{{route('orderSablon')}}" class="btn btn-outline-danger ml-2" style="margin-left: 10px;">Next</a>
-        </div>
     </section>
 </body>
 <script>

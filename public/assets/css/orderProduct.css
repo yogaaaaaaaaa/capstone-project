@@ -25,18 +25,27 @@ body {
 }
 
 .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -1px;
     left: 0px;
-    background-color: #ffffff;
+    background-color: transparent;
     width: 0px;
     height: 3px;
+    transform: scaleX(0);
     transition: 0.4s ease-in-out;
+    transform-origin: left;
 }
 
 .nav-item:hover .nav-link::after{
+    transform: scaleX(1);
     width: 100%;
+    background-color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: none;
 }
 
 .user-pic {

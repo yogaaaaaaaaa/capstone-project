@@ -120,6 +120,25 @@
         })
       });
     </script>
+    <script>
+      window.onload = function() {
+          if (window.history && window.history.pushState) {
+              window.history.pushState('forward', null, null);
+
+              window.onpopstate = function(event) {
+                  event.preventDefault();
+                  if (confirm('Anda yakin ingin kembali? Anda akan kehilangan detail pesanan.')) {
+                      window.history.pushState('forward', null, null);
+                      window.location.href = "{{ route('orderDetail.index') }}"; // Ganti dengan URL tujuan jika diklik OK
+                  } else {
+                      window.history.pushState('forward', null, null);
+                  }
+              };
+          }
+      };
+    </script>
+
+    
 
 </body>
 </html>

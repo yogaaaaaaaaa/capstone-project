@@ -33,7 +33,7 @@
     <section class="contact">
       <div class="content">
           <h2>Contact Us</h2>
-          <p>Selamat datang di "Contact Us" kami! Kami senang mendengar dari Anda. Gunakan formulir di bawah ini . Kami siap memberikan respon cepat dan membantu Anda secepat mungkin. Setiap pertanyaan atau tanggapan Anda sangat berarti bagi kami!</p>
+          <p>Welcome to our "Contact Us"! We love hearing from you. Use the form below. We are ready to provide a quick response and help you as quickly as possible. Your every question or feedback means a lot to us!</p>
       </div>
       <div class="container">
           <div class="contacinfo">
@@ -139,5 +139,4 @@
 
     </script>
 </body>
->>>>>>> 3a6c9aae679307d611a23af334729c38c4aa3130
 </html>

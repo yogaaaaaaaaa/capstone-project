@@ -39,7 +39,7 @@
             </div>
             <hr>
 
-            <a href="#" class="sub-menu-link">
+            {{-- <a href="#" class="sub-menu-link">
                 <div class="content-left">
                 <img src="{{asset('assets/img/profile.png')}}" alt="">
                 </div>
@@ -56,7 +56,7 @@
                 <p>Setting</p>
                 <span>&gt;</span>
                 </div>
-            </a>
+            </a> --}}
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <a href="route('logout')" class="sub-menu-link" onclick="event.preventDefault(); this.closest('form').submit();">

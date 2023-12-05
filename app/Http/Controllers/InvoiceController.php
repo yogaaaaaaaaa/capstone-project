@@ -15,10 +15,15 @@ class InvoiceController extends Controller
         $orderSablon = Order::findOrFail($orderSablonId);
         $orderDetail = DetailOrder::where('order_id', $orderSablonId)->first();
 
-        if(request('output') == 'pdf') {
-            $pdf = Pdf::loadView('customer.invoice', ['orderSablon' => $orderSablon, 'orderDetail' => $orderDetail])->setOptions(['defaultFont' => 'sans-serif']);
-            return $pdf->download('Invoice-Pemesanan-Sablon.pdf');
-        }
+        $pdf = Pdf::loadView('customer.cetakInvoice', ['orderSablon' => $orderSablon, 'orderDetail' => $orderDetail])->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->download('Invoice-Pemesanan-Sablon.pdf');
+
+        // return view('customer.cetakInvoice', compact('orderSablon', 'orderDetail'));
+    }
+
+    public function showInvoice($orderSablonId) {
+        $orderSablon = Order::findOrFail($orderSablonId);
+        $orderDetail = DetailOrder::where('order_id', $orderSablonId)->first();
 
         return view('customer.invoice', compact('orderSablon', 'orderDetail'));
     }

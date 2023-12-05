@@ -20,7 +20,7 @@ class GoogleController extends Controller
         try {
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
-            return view('/');
+            return view('/home');
             // return redirect('/')->with('error', 'Terjadi kesalahan saat melakukan autentikasi dengan Google.');
         }
     
@@ -36,7 +36,7 @@ class GoogleController extends Controller
         if ($existingUser) {
             // Jika user sudah ada, lakukan login
             Auth::login($existingUser);
-            return redirect()->intended('home');
+            return redirect()->route('home');
         } else {
             // Jika user belum ada, buat user baru
             $newUser = User::create([
@@ -48,7 +48,7 @@ class GoogleController extends Controller
             ]);
     
             Auth::login($newUser);
-            return redirect()->intended('home');
+            return redirect()->route('home');
         }
     }
 }

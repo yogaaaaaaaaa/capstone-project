@@ -24,7 +24,7 @@ return new class extends Migration
             $table->enum('payment_status', ['Belum Bayar', 'Sudah Bayar']);
             $table->enum('order_status', ['Belum diproses', 'Sedang diproses', 'Selesai', 'Dikirim']);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

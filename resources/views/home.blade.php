@@ -37,25 +37,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#">Profil</a>
+                  <a class="nav-link" aria-current="page" href="">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Service
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Order Sablon</a></li>
-                    <li><a class="dropdown-item" href="#">Order Tshirt</a></li>
+                    <li><a class="dropdown-item" href="">Order Sablon</a></li>
+                    <li><a class="dropdown-item" href="">Order Tshirt</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Tracking</a>
+                  <a class="nav-link" href="">Tracking</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Team</a>
+                  <a class="nav-link" href="">Team</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="">Contact</a>
                 </li>
               </ul>
               <a href="{{route('login')}}" class="me-3" style="text-decoration: none; color: rgb(255, 255, 255);">Log In</a>
@@ -226,45 +226,18 @@
           <h2 style="font-weight: 800; font-family:'Poppins';">Testimoni</h2>
         </div>
         <div class="row mt-5">
+          @foreach($testimonies as $testi)
           <div class="col-md-4 mt-4">
-            <div class="card-testi" data-aos="zoom-in-up" data-aos-duration="2000">
-              <h5 class="text-center mt-3 testi-title">Testimonials</h5>
-              <p class="text-center testi-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.</p>
-              <div class="outer-box">
-                <div class="img-testi d-flex justify-content-center">
-                  <img src="{{asset('assets/img/testimonial-1.jpg')}}" class="img-size" alt="" width="120px">
-                </div>
-                <p class="comment-user mt-4 text-center">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.”</p>
-                <h6 class="name-user text-center">- Jhon Kennedy</h6>
+              <div class="card-testi" data-aos="zoom-in-up" data-aos-duration="2000">
+                  <h5 class="text-center mt-3 testi-title">Testimonials</h5>
+                  <p class="text-center testi-p">The following are customer testimonials regarding the service and quality of our products</p>
+                  <div class="outer-box">
+                      <p class="comment-user mt-4 text-center">{{$testi->critique_suggestions}}.{{$testi->product_value}}</p>
+                      <h6 class="name-user text-center">- {{$testi->user->name}}</h6>
+                  </div>
               </div>
-            </div>
           </div>
-          <div class="col-md-4 mt-4">
-            <div class="card-testi" data-aos="zoom-in-up" data-aos-duration="2000">
-              <h5 class="text-center mt-3 testi-title">Testimonials</h5>
-              <p class="text-center testi-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.</p>
-              <div class="outer-box">
-                <div class="img-testi d-flex justify-content-center">
-                  <img src="{{asset('assets/img/testimonial-1.jpg')}}" class="img-size" alt="" width="120px">
-                </div>
-                <p class="comment-user mt-4 text-center">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.”</p>
-                <h6 class="name-user text-center">- Jhon Kennedy</h6>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-4">
-            <div class="card-testi" data-aos="zoom-in-up" data-aos-duration="2000">
-              <h5 class="text-center mt-3 testi-title">Testimonials</h5>
-              <p class="text-center testi-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.</p>
-              <div class="outer-box">
-                <div class="img-testi d-flex justify-content-center">
-                  <img src="{{asset('assets/img/testimonial-1.jpg')}}" class="img-size" alt="" width="120px">
-                </div>
-                <p class="comment-user mt-4 text-center">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus sed elementum et fringilla id bibendum vestibulum.”</p>
-                <h6 class="name-user text-center">- Jhon Kennedy</h6>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
         <h4 class="text-white text-center mt-5 text-testi-form" data-aos="zoom-in" data-aos-duration="1000">Hello friends, come on and give your feedback on the quality of products and services from Hang Siji Distro & Screen Printing</h4>
         <div class="mt-5">
